@@ -1,5 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {OnboardFlow} from 'react-native-onboard';
 
 function App(): React.JSX.Element {
   return (
@@ -10,6 +11,21 @@ function App(): React.JSX.Element {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
+      <OnboardFlow
+        pages={[
+          {
+            title: 'Welcome to my app',
+            subtitle: 'This is page 1',
+            imageUri: 'https://frigade.com/img/example1.png',
+          },
+          {
+            title: 'Page 2 header',
+            subtitle: 'This is page 2',
+            imageUri: 'https://frigade.com/img/example2.png',
+          },
+        ]}
+        type={'fullscreen'}
+      />
       <Text style={styles.sectionContainer}>Test</Text>
     </SafeAreaView>
   );
