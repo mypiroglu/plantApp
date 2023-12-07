@@ -4,7 +4,7 @@ export const palette = {
   offGreen: '#597165B2',
   green: '#28AF6E',
   darkGreen: '#101E17',
-  grey: '#F6F6F6D6',
+  grey: '#979798',
   angry: '#dd3333',
   ligtGreen: '#2CCC80',
 };

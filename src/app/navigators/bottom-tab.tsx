@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import {Text} from '../components';
-import {colors} from '../utils';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { Text } from '../components';
+import { colors } from '../utils';
+import { Icon } from '../components/icon';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,8 +40,11 @@ const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({
           height: 58,
           borderRadius: 29,
           backgroundColor: colors.palette.green,
+          justifyContent: 'center',
+          alignItems: 'center',
         }}>
-        {children}
+        <Icon icon="scan" />
+
       </View>
     </View>
   </TouchableOpacity>
@@ -78,23 +82,11 @@ const MyTabs: React.FC = () => {
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
-              <Image
-                width={25}
-                height={25}
-                source={require('../../assets/cat.jpg')}
-                resizeMode="cover"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused
-                    ? colors.palette.green
-                    : colors.palette.offGreen,
-                }}
-              />
+              <Icon icon={focused ? 'shome' : 'uhome'} />
               <Text
-                color={focused ? colors.palette.green : colors.palette.gray}
+                color={focused ? colors.palette.green : colors.palette.grey}
                 style={styles.text}>
                 HOME
               </Text>
@@ -106,23 +98,11 @@ const MyTabs: React.FC = () => {
         name="Home1"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
-              <Image
-                width={25}
-                height={25}
-                source={require('../../assets/cat.jpg')}
-                resizeMode="cover"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused
-                    ? colors.palette.green
-                    : colors.palette.offGreen,
-                }}
-              />
+              <Icon icon={focused ? 'sdiagnose' : 'udiagnose'} />
               <Text
-                color={focused ? colors.palette.green : colors.palette.gray}
+                color={focused ? colors.palette.green : colors.palette.grey}
                 style={styles.text}>
                 Diagnose
               </Text>
@@ -142,21 +122,9 @@ const MyTabs: React.FC = () => {
         name="Home2"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
-              <Image
-                width={25}
-                height={25}
-                source={require('../../assets/cat.jpg')}
-                resizeMode="cover"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused
-                    ? colors.palette.green
-                    : colors.palette.offGreen,
-                }}
-              />
+              <Icon icon={focused ? 'sgarden' : 'ugarden'} />
               <Text
                 color={focused ? colors.palette.green : colors.palette.gray}
                 style={styles.text}>
@@ -170,21 +138,9 @@ const MyTabs: React.FC = () => {
         name="Home3"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
-              <Image
-                width={25}
-                height={25}
-                source={require('../../assets/cat.jpg')}
-                resizeMode="cover"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused
-                    ? colors.palette.green
-                    : colors.palette.offGreen,
-                }}
-              />
+              <Icon icon={focused ? 'sprofile' : 'uprofile'} />
               <Text
                 color={focused ? colors.palette.green : colors.palette.gray}
                 style={styles.text}>
