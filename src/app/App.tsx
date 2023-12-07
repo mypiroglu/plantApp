@@ -1,15 +1,24 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Text } from './components';
-
-
+import {StatusBar, StyleSheet, View} from 'react-native';
+import {Provider} from 'react-redux';
+import {store} from './redux/store';
+import AppStack from './navigators/app-stack';
 
 const App: React.FC = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: "center" }}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <View style={style.root}>
+      <StatusBar animated={true} hidden={true} />
+      <Provider store={store}>
+        <AppStack />
+      </Provider>
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});
 
 export default App;

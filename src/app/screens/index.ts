@@ -1,1 +1,1 @@
-export * from './onBoarding_first_page';
+export * from './test_screen';
