@@ -7,4 +7,6 @@ export const palette = {
   grey: '#979798',
   angry: '#dd3333',
   ligtGreen: '#2CCC80',
+  premiumBrown: '#24201A',
+  offWhite: '#FBFAFA',
 };

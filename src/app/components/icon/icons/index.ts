@@ -8,6 +8,8 @@ export const icons = {
   sgarden: require('./sgarden.png'),
   uprofile: require('./uprofile.png'),
   sprofile: require('./sprofile.png'),
+  mail: require('./mail.png'),
+  arrow: require('./arrow.png'),
 };
 
 export type IconTypes = keyof typeof icons;

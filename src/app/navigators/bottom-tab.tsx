@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Text } from '../components';
 import { colors } from '../utils';
 import { Icon } from '../components/icon';
+import { TestScreen, HomeScreen } from '../screens';
+import HomeStack from './home-stack';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,15 +46,12 @@ const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({
           alignItems: 'center',
         }}>
         <Icon icon="scan" />
-
       </View>
     </View>
   </TouchableOpacity>
 );
 
-const HomeScreen: React.FC = () => {
-  return <View>{/* Home screen content */}</View>;
-};
+
 
 const PlusScreen: React.FC = () => {
   return <View>{/* Plus screen content */}</View>;
@@ -61,51 +60,40 @@ const PlusScreen: React.FC = () => {
 const MyTabs: React.FC = () => {
   return (
     <Tab.Navigator
+
       screenOptions={{
         headerShown: false,
-      }}
-      tabBarOptions={{
-        showLabel: false,
-        style: {
-          position: 'absolute',
-          bottom: 25,
-          left: 20,
-          right: 20,
-          elevation: 0,
-          backgroundColor: '#ffffff',
-          borderRadius: 15,
-          height: 90,
-          ...styles.shadow,
+        tabBarActiveTintColor: colors.palette.green,
+        tabBarInactiveTintColor: colors.palette.grey,
+        tabBarStyle: {
+          height: 84,
+        },
+        tabBarLabelStyle: {
+          fontSize: 10,
+          fontWeight: '400',
+          lineHeight: 11.85,
+          letterSpacing: -0.24,
+          textAlign: 'center',
         },
       }}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               <Icon icon={focused ? 'shome' : 'uhome'} />
-              <Text
-                color={focused ? colors.palette.green : colors.palette.grey}
-                style={styles.text}>
-                HOME
-              </Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="Home1"
-        component={HomeScreen}
+        name="Diagnose"
+        component={HomeStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               <Icon icon={focused ? 'sdiagnose' : 'udiagnose'} />
-              <Text
-                color={focused ? colors.palette.green : colors.palette.grey}
-                style={styles.text}>
-                Diagnose
-              </Text>
             </View>
           ),
         }}
@@ -119,33 +107,23 @@ const MyTabs: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="Home2"
-        component={HomeScreen}
+        name="My Garden"
+        component={HomeStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               <Icon icon={focused ? 'sgarden' : 'ugarden'} />
-              <Text
-                color={focused ? colors.palette.green : colors.palette.gray}
-                style={styles.text}>
-                My Garden
-              </Text>
             </View>
           ),
         }}
       />
       <Tab.Screen
-        name="Home3"
-        component={HomeScreen}
+        name="Profile"
+        component={HomeStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
               <Icon icon={focused ? 'sprofile' : 'uprofile'} />
-              <Text
-                color={focused ? colors.palette.green : colors.palette.gray}
-                style={styles.text}>
-                Profile
-              </Text>
             </View>
           ),
         }}
@@ -175,7 +153,6 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    top: 10,
   },
 });
 

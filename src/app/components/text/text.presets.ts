@@ -10,7 +10,8 @@ const BASE: TextStyle = {
 export const presets = {
   primary: {...BASE} as TextStyle,
   secondary: {...BASE, color: colors.subText} as TextStyle,
-  black: {...BASE, color: colors.textBlack} as TextStyle,
+  third: {...BASE, color: colors.textBlack, fontWeight: 'bold'} as TextStyle,
+  black: {...BASE, color: colors.textBlack, fontWeight: '400'} as TextStyle,
   disable: {...BASE, color: colors.palette.grey} as TextStyle,
 };
 

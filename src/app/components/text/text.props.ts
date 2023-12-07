@@ -10,6 +10,8 @@ interface TextProps extends TextProperties {
   style?: StyleProp<TextStyle>;
   preset?: TextPresets;
   underline?: boolean;
+  gradient?: boolean;
+  subText?: boolean;
 }
 
 export default TextProps;
