@@ -10,6 +10,7 @@ export const icons = {
   sprofile: require('./sprofile.png'),
   mail: require('./mail.png'),
   arrow: require('./arrow.png'),
+  search: require('./search.png'),
 };
 
 export type IconTypes = keyof typeof icons;

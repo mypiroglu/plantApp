@@ -24,7 +24,7 @@ const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({
       top: -20,
       justifyContent: 'center',
       alignItems: 'center',
-      ...styles.shadow,
+
     }}
     onPress={onPress}>
     <View
@@ -133,16 +133,6 @@ const MyTabs: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
   text: {
     fontSize: 10,
     fontWeight: '400',

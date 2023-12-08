@@ -2,17 +2,18 @@ import {ViewStyle, TextStyle} from 'react-native';
 import {colors, sizing} from '../../utils';
 
 const BASE_VIEW: ViewStyle = {
-  height: sizing.width * 0.4,
+  height: sizing.width * 0.43,
   borderRadius: 12,
-  width: sizing.width * 0.4,
-  marginRight: sizing.width - sizing.width * 0.8 - sizing.padding * 2,
+  width: sizing.width * 0.43,
+  marginRight: sizing.width - sizing.width * 0.86 - sizing.padding * 2,
   backgroundColor: colors.palette.white,
-  borderColor: colors.palette.grey,
-  borderWidth: 1,
+  borderColor: 'rgba(0,0,0,0.05)',
+
+  borderWidth: 1.3,
 };
 
 const BASE_TEXT: TextStyle = {
-  fontWeight: '700',
+  fontWeight: '500',
   color: colors.palette.black,
   textAlign: 'left',
   lineHeight: 24,

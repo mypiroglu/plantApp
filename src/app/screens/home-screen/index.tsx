@@ -1,17 +1,16 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   ImageBackground,
   TextInput,
   FlatList,
   ActivityIndicator,
-  Text,
 } from 'react-native';
-import {Button, StartedCard, CategoryCard} from '../../components';
-import {colors} from '../../utils';
+import { Button, StartedCard, CategoryCard, Text, Icon } from '../../components';
+import { colors, sizing } from '../../utils';
 import styles from './styles';
-import {useDispatch, useSelector} from 'react-redux';
-import {getData, getQuestions} from '../../api';
+import { useDispatch, useSelector } from 'react-redux';
+import { getData, getQuestions } from '../../api';
 
 interface RootState {
   categories: {
@@ -38,8 +37,8 @@ export const HomeScreen: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(getData());
-    dispatch(getQuestions());
+    !categoriesData && dispatch(getData());
+    !questionsData && dispatch(getQuestions());
   }, [dispatch]);
 
   const renderHeader = () => (
@@ -48,24 +47,31 @@ export const HomeScreen: React.FC = () => {
         <Text preset={'black'}>Hi, plant lover!</Text>
         <Text preset={'third'}>Good Afternoon! ⛅</Text>
       </View>
+
       <ImageBackground
         source={require('../../../assets/images/searchContainer.png')}
         imageStyle={styles.searchImage}
         style={styles.searchContainer}>
-        <TextInput placeholder={'Search'} style={styles.searchInput} />
+        <View style={styles.inputContainer}>
+          <Icon icon={'search'} />
+          <TextInput p placeholder={'Search for plants!'} style={styles.searchInput} />
+        </View>
       </ImageBackground>
 
-      <Button
-        text="FREE Premium Available"
-        subText="Tap to upgrade your account!"
-        onPress={() => dispatch(getData())}
-        iconLeft={'mail'}
-        preset={'third'}
-        iconRight={'arrow'}
-      />
-      <Text preset={'third'} bold={true} size={18} style={styles.getStarted}>
-        Get Started
-      </Text>
+
+      <View style={styles.container}>
+        <Button
+          text="FREE Premium Available"
+          subText="Tap to upgrade your account!"
+          onPress={() => dispatch(getData())}
+          iconLeft={'mail'}
+          preset={'third'}
+          iconRight={'arrow'}
+        />
+        <Text preset={'third'} bold={true} size={18} style={styles.getStarted}>
+          Get Started
+        </Text>
+      </View>
 
       {questionsIsLoading ? (
         <ActivityIndicator size="large" color={colors.palette.green} />
@@ -74,12 +80,14 @@ export const HomeScreen: React.FC = () => {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={questionsData}
-          renderItem={({item}) => (
-            <StartedCard
-              text={item.title}
-              imageUri={item.image_uri}
-              onPress={() => console.log('Pressed')}
-            />
+          renderItem={({ item }) => (
+            <View style={styles.container}>
+              <StartedCard
+                text={item.title}
+                imageUri={item.image_uri}
+                onPress={() => console.log('Pressed')}
+              />
+            </View>
           )}
           keyExtractor={item => item.id}
         />
@@ -87,26 +95,28 @@ export const HomeScreen: React.FC = () => {
     </>
   );
 
-  const renderCategoryItem = ({item}) => (
-    <CategoryCard
-      text={item.title}
-      imageUri={item.image.url}
-      onPress={() => console.log('Pressed')}
-    />
+  const renderCategoryItem = ({ item }) => (
+    <View style={styles.container}>
+      <CategoryCard
+        text={item.title}
+        imageUri={item.image.url}
+        onPress={() => console.log('Pressed')}
+      />
+    </View>
   );
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        style={styles.flatList}
-        ListHeaderComponent={renderHeader}
-        data={categoriesIsLoading ? [] : categoriesData}
-        renderItem={renderCategoryItem}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
-      />
-    </View>
+
+    <FlatList
+      showsVerticalScrollIndicator={false}
+      style={styles.flatList}
+      ListHeaderComponent={renderHeader}
+      data={categoriesIsLoading ? [] : categoriesData}
+      renderItem={renderCategoryItem}
+      keyExtractor={item => item.id}
+      numColumns={2}
+      ItemSeparatorComponent={() => <View style={styles.separator} />}
+    />
+
   );
 };

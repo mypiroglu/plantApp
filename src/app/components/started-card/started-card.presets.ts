@@ -11,7 +11,7 @@ const BASE_VIEW: ViewStyle = {
 
 const BASE_TEXT: TextStyle = {
   paddingHorizontal: 15,
-  fontWeight: '700',
+  fontWeight: '500',
   color: colors.palette.white,
   textAlign: 'center',
   lineHeight: 24,

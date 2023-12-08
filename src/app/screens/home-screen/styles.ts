@@ -20,15 +20,17 @@ const styles: Styles = StyleSheet.create<Styles>({
     marginTop: sizing.padding,
     height: sizing.headerHeight,
     justifyContent: 'space-around',
+    paddingHorizontal: sizing.padding,
   },
   searchContainer: {
     width: sizing.width,
-    marginLeft: -sizing.padding,
+
     paddingHorizontal: sizing.padding,
     height: 120,
     justifyContent: 'center',
     alignItems: 'center',
     top: -sizing.padding,
+    zIndex: 999,
   },
   searchImage: {
     width: sizing.width,
@@ -36,13 +38,11 @@ const styles: Styles = StyleSheet.create<Styles>({
     resizeMode: 'contain',
   },
   searchInput: {
-    width: sizing.width - 2 * sizing.padding,
-    height: 44,
+    width: '100%',
+    height: 'auto',
     borderRadius: 12,
     backgroundColor: colors.palette.white,
-    paddingHorizontal: sizing.padding,
-    borderColor: colors.palette.grey,
-    borderWidth: 1,
+    paddingHorizontal: sizing.padding / 2,
     alignSelf: 'center',
   },
   getStarted: {
@@ -55,6 +55,18 @@ const styles: Styles = StyleSheet.create<Styles>({
     height: 20,
     width: '100%',
     backgroundColor: colors.transparent,
+  },
+  inputContainer: {
+    width: sizing.width - 2 * sizing.padding,
+    height: 44,
+    borderRadius: 12,
+    backgroundColor: colors.palette.white,
+    paddingHorizontal: sizing.padding,
+    borderColor: 'rgba(0,0,0,0.05)',
+    borderWidth: 1.5,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
