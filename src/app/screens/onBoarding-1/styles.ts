@@ -62,6 +62,7 @@ const styles: Styles = StyleSheet.create<Styles>({
   },
   button: {
     marginBottom: 20,
+    top: '2.1%',
   },
 });
 

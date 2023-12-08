@@ -4,7 +4,7 @@ import { Text, Button } from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-export const OnBoarding1 = () => {
+export const OnBoarding1 = ({ navigate }) => {
   const navigation = useNavigation();
   return (
     <LinearGradient
@@ -37,24 +37,26 @@ export const OnBoarding1 = () => {
           style={styles.image}
           resizeMode="contain"
         />
-        <Button text="Get Started" style={styles.button} onPress={() => navigation.navigate("on-boarding-two-screen")} />
-        <Text style={styles.termsText}>
-          By tapping next, you are agreeing to PlantID
-        </Text>
-        <View style={styles.termsContainer}>
-          <Text
-            style={styles.termsText}
-            underline={true}
-            onPress={() => Linking.openURL('https://plantapp.app/terms/')}>
-            Terms of Service
+        <Button text="Get Started" style={styles.button} onPress={navigate} />
+        <View style={{ top: "2%" }}>
+          <Text style={styles.termsText}>
+            By tapping next, you are agreeing to PlantID
           </Text>
-          <Text style={styles.termsText} text=" & " />
-          <Text
-            style={styles.termsText}
-            underline={true}
-            onPress={() => Linking.openURL('https://plantapp.app/privacy/')}>
-            Privacy Policy
-          </Text>
+          <View style={styles.termsContainer}>
+            <Text
+              style={styles.termsText}
+              underline={true}
+              onPress={() => Linking.openURL('https://plantapp.app/terms/')}>
+              Terms of Service
+            </Text>
+            <Text style={styles.termsText} text=" & " />
+            <Text
+              style={styles.termsText}
+              underline={true}
+              onPress={() => Linking.openURL('https://plantapp.app/privacy/')}>
+              Privacy Policy
+            </Text>
+          </View>
         </View>
       </View>
     </LinearGradient>

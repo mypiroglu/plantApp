@@ -1,59 +1,70 @@
 import React from 'react';
-import { Image, Linking, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { Text, Button } from '../../components';
-import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
-export const OnBoarding2 = () => {
+import { sizing } from '../../utils';
+
+export const OnBoarding2 = ({ navigate }) => {
   return (
-    <LinearGradient
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      colors={[
-        'white',
-        'white',
-        'rgba(137, 196, 244, .4)',
-        'white',
-        'white',
-        'white',
-      ]}
-      style={styles.linearGradientContainer}>
+    <View style={styles.root}>
       <View style={{ flexDirection: 'row' }}>
         <Text style={styles.welcomeText} preset="black">
-          Welcom123123e to{' '}
+          Take a photo to identify{' '}
         </Text>
         <Text style={styles.plantText} preset="black">
-          PlantApp
+          identify
         </Text>
       </View>
-      <Text preset="black" style={styles.subtext}>
-        Identify more than 3000+ plants and 88% accuracy.
+      <Text style={styles.welcomeText} preset="black">
+        the plant!
       </Text>
+      <Image
+        source={require('../../../assets/images/Brush.png')}
+        style={styles.brushImage}
+        resizeMode="contain"
+      />
       <View style={styles.contentContainer}>
         <Image
-          source={require('../../../assets/images/onBoard1.png')}
+          source={require('../../../assets/images/onBoardPhone.png')}
           style={styles.image}
           resizeMode="contain"
         />
-        <Button text="Get Started" style={{ marginBottom: 20 }} />
-        <Text style={styles.termsText}>
-          By tapping next, you are agreeing to PlantID
-        </Text>
-        <View style={styles.termsContainer}>
-          <Text
-            style={styles.termsText}
-            underline={true}
-            onPress={() => Linking.openURL('https://plantapp.app/terms/')}>
-            Terms of Service
-          </Text>
-          <Text style={styles.termsText} text=" & " />
-          <Text
-            style={styles.termsText}
-            underline={true}
-            onPress={() => Linking.openURL('https://plantapp.app/privacy/')}>
-            Privacy Policy
-          </Text>
+        <Button text="Continue" style={{ marginBottom: 20, top: "-22.5%" }} onPress={navigate} />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: 32,
+            position: 'absolute',
+            bottom: sizing.height * 0.09,
+          }}>
+          <View
+            style={{
+              width: 8,
+              height: 8,
+              backgroundColor: 'black',
+              borderRadius: 4,
+            }}
+          />
+          <View
+            style={{
+              width: 6,
+              height: 6,
+              backgroundColor: 'gray',
+              borderRadius: 3,
+            }}
+          />
+          <View
+            style={{
+              width: 6,
+              height: 6,
+              backgroundColor: 'gray',
+              borderRadius: 3,
+            }}
+          />
         </View>
       </View>
-    </LinearGradient>
+    </View>
   );
 };
