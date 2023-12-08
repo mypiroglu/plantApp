@@ -19,7 +19,6 @@ const styles: Styles = StyleSheet.create<Styles>({
   header: {
     marginTop: sizing.padding,
     height: sizing.headerHeight,
-    justifyContent: 'space-around',
     paddingHorizontal: sizing.padding,
   },
   searchContainer: {
