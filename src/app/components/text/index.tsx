@@ -45,7 +45,7 @@ export const Text = (props: TextProps) => {
         </LinearGradient>
       </Defs>
       <Text2 fill="url(#rainbow)">
-        <TSpan x={subText ? "-150" : "-150"} y={subText ? "25" : "40"} fontSize={subText ? 20 : 24} fontWeight={subText ? 400 : 700} >
+        <TSpan x={subText ? "-150" : "-150"} y={subText ? "25" : "40"} fontSize={subText ? 26 : 30} fontWeight={subText ? 400 : 700} >
           {text || children}
         </TSpan>
       </Text2>

@@ -2,7 +2,7 @@ import {ViewStyle, TextStyle} from 'react-native';
 import {colors, sizing} from '../../utils';
 
 const BASE_VIEW: ViewStyle = {
-  height: 56,
+  height: 64,
   borderRadius: 12,
   justifyContent: 'center',
   alignItems: 'center',
@@ -24,7 +24,7 @@ export const viewPresets: Record<string, ViewStyle> = {
   third: {
     ...BASE_VIEW,
     backgroundColor: colors.premiumBrown,
-    width: sizing.width * 0.8,
+    width: sizing.width - sizing.width * 2,
     justifyContent: 'center',
     alignItems: 'center',
   } as ViewStyle,
@@ -34,7 +34,7 @@ export const viewPresets: Record<string, ViewStyle> = {
 export const textPresets: Record<ButtonPresetNames, TextStyle> = {
   primary: {...BASE_TEXT} as TextStyle,
   secondary: {...BASE_TEXT, color: colors.palette.black} as TextStyle,
-  third: {...BASE_TEXT, fontSize: 20, fontWeight: '700'} as TextStyle,
+  third: {...BASE_TEXT, fontWeight: '700'} as TextStyle,
   disabled: {...BASE_TEXT, color: colors.palette.white} as TextStyle,
 };
 

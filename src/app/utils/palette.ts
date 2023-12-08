@@ -8,5 +8,5 @@ export const palette = {
   angry: '#dd3333',
   ligtGreen: '#2CCC80',
   premiumBrown: '#24201A',
-  offWhite: '#FBFAFA',
+  offWhite: '#f5f5f5',
 };

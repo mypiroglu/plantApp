@@ -1,8 +1,11 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-// import {} from './slice';
+import {categoriesSlice, questionsSlice} from './slice';
 
-const reducer = combineReducers({});
+const reducer = combineReducers({
+  categories: categoriesSlice,
+  questions: questionsSlice,
+});
 
 export const store = configureStore({
   reducer,
