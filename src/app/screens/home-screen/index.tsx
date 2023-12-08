@@ -96,13 +96,13 @@ export const HomeScreen: React.FC = () => {
   );
 
   const renderCategoryItem = ({ item }) => (
-    <View style={styles.container}>
-      <CategoryCard
-        text={item.title}
-        imageUri={item.image.url}
-        onPress={() => console.log('Pressed')}
-      />
-    </View>
+
+    <CategoryCard
+      text={item.title}
+      imageUri={item.image.url}
+      onPress={() => console.log('Pressed')}
+    />
+
   );
 
   return (

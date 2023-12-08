@@ -2,13 +2,12 @@ import {ViewStyle, TextStyle} from 'react-native';
 import {colors, sizing} from '../../utils';
 
 const BASE_VIEW: ViewStyle = {
-  height: sizing.width * 0.43,
+  height: (sizing.width - 60) / 2,
+  width: (sizing.width - 60) / 2,
   borderRadius: 12,
-  width: sizing.width * 0.43,
-  marginRight: sizing.width - sizing.width * 0.86 - sizing.padding * 2,
+  marginLeft: 20,
   backgroundColor: colors.palette.white,
   borderColor: 'rgba(0,0,0,0.05)',
-
   borderWidth: 1.3,
 };
 
