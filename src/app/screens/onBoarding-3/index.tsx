@@ -1,13 +1,12 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, View, SafeAreaView } from "react-native";
 import { Text, Button } from "../../components";
 import styles from "./styles";
 import { sizing } from "../../utils";
 export const OnBoarding3 = ({ navigate }) => {
-  return (
-    <View
 
-      style={styles.root}>
+  return (
+    <SafeAreaView style={styles.root}>
       <View style={{ flexDirection: "row", paddingHorizontal: 20 }}>
         <Text style={styles.welcomeText} preset="black">
           Get plant
@@ -74,6 +73,6 @@ export const OnBoarding3 = ({ navigate }) => {
           />
         </View>
       </View>
-    </View >
+    </SafeAreaView >
   );
 };

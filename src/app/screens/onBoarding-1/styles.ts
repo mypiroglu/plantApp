@@ -62,7 +62,7 @@ const styles: Styles = StyleSheet.create<Styles>({
   },
   button: {
     marginBottom: 20,
-    top: '2.1%',
+    top: sizing.height > 700 ? '3%' : '6%',
   },
 });
 

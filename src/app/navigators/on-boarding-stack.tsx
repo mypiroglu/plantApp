@@ -7,25 +7,21 @@ const Stack = createNativeStackNavigator();
 
 const OnBoardingStack = () => {
   return (
-    <SafeAreaView style={styles.root}>
-      <Stack.Navigator
-        initialRouteName="home-screen"
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="on-boarding-screen" component={OnBoarding} />
-        <Stack.Screen name="on-boarding-one-screen" component={OnBoarding1} />
-        <Stack.Screen name="on-boarding-two-screen" component={OnBoarding2} />
-        <Stack.Screen name="on-boarding-three-screen" component={OnBoarding3} />
-      </Stack.Navigator>
-    </SafeAreaView>
+
+    <Stack.Navigator
+      initialRouteName="home-screen"
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Stack.Screen name="on-boarding-screen" component={OnBoarding} />
+      <Stack.Screen name="on-boarding-one-screen" component={OnBoarding1} />
+      <Stack.Screen name="on-boarding-two-screen" component={OnBoarding2} />
+      <Stack.Screen name="on-boarding-three-screen" component={OnBoarding3} />
+    </Stack.Navigator>
+
   );
 };
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-});
+
 
 export default OnBoardingStack;

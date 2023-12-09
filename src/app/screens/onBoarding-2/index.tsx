@@ -1,12 +1,12 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { SafeAreaView, Image, View } from 'react-native';
 import { Text, Button } from '../../components';
 import styles from './styles';
 import { sizing } from '../../utils';
 
 export const OnBoarding2 = ({ navigate }) => {
   return (
-    <View style={styles.root}>
+    <SafeAreaView style={styles.root}>
       <View style={{ flexDirection: 'row' }}>
         <Text style={styles.welcomeText} preset="black">
           Take a photo to identify{' '}
@@ -29,7 +29,7 @@ export const OnBoarding2 = ({ navigate }) => {
           style={styles.image}
           resizeMode="contain"
         />
-        <Button text="Continue" style={{ marginBottom: 20, top: "-22.5%" }} onPress={navigate} />
+        <Button text="Continue" style={{ marginBottom: 20, top: "-24%" }} onPress={navigate} />
         <View
           style={{
             flexDirection: 'row',
@@ -65,6 +65,6 @@ export const OnBoarding2 = ({ navigate }) => {
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };

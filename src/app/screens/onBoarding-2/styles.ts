@@ -13,7 +13,6 @@ interface Styles {
 const styles: Styles = StyleSheet.create<Styles>({
   root: {
     flex: 1,
-    padding: 20,
     backgroundColor: colors.palette.white,
   },
   welcomeText: {
@@ -21,6 +20,7 @@ const styles: Styles = StyleSheet.create<Styles>({
     fontSize: 24,
     lineHeight: 33.18,
     letterSpacing: 0.07,
+    marginLeft: 20,
   },
   plantText: {
     fontWeight: '700',
@@ -45,7 +45,7 @@ const styles: Styles = StyleSheet.create<Styles>({
     resizeMode: 'contain',
     alignSelf: 'flex-end',
     top: -75,
-    left: sizing.width > 400 ? -50 : 10,
+    left: sizing.width > 400 ? -70 : -10,
   },
 });
 
