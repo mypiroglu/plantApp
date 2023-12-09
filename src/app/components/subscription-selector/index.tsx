@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, Text, Pressable, StyleSheet} from 'react-native';
-import {SubscriptionButtonProps} from './subsription-selector.prop';
+import React, { useState } from 'react';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { SubscriptionButtonProps } from './subsription-selector.prop';
 import styles from './subscription-selector.presets';
 type SubscriptionOption = 'monthly' | 'yearly';
 
@@ -14,10 +14,10 @@ const SubscriptionButton: React.FC<SubscriptionButtonProps> = ({
       style={[styles.button, isSelected ? styles.selected : null]}
       onPress={() => onSelect(option)}
       activeOpacity={0.8}>
-      <View style={styles.radioButton}>
+      <View style={isSelected ? styles.selectedRadioButton : styles.radioButton}>
         {isSelected && <View style={styles.radioButtonSelected} />}
       </View>
-      <View style={styles.buttonTextWrapper}>
+      <View>
         <Text style={styles.buttonText}>
           {option === 'monthly' ? '1 Month' : '1 Year'}
         </Text>

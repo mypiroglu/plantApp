@@ -29,13 +29,20 @@ export default StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.palette.offGreen,
   },
+  selectedRadioButton: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.palette.green,
+  },
   radioButtonSelected: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
     backgroundColor: colors.palette.white,
   },
-  buttonTextWrapper: {},
   buttonText: {
     color: colors.palette.white,
     fontWeight: '500',
@@ -68,6 +75,6 @@ export default StyleSheet.create({
     borderBottomRightRadius: 0,
     backgroundColor: colors.palette.green,
     top: -15,
-    left: sizing.height > 700 ? 55 : 0,
+    left: sizing.height > 900 ? 55 : sizing.height > 800 ? 40 : 0,
   },
 });
