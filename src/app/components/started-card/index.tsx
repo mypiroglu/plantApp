@@ -1,12 +1,11 @@
-import * as React from 'react';
-import { ImageBackground, TouchableOpacity, View } from 'react-native';
-import { colors } from '../../utils';
-import { Text } from '..';
-import { viewPresets, textPresets, StartedCardNames } from './started-card.presets';
-import { StartedCardProps } from './started-card.props';
+import React from 'react';
+import {ImageBackground, TouchableOpacity, View} from 'react-native';
+import {Text} from '..';
+import {viewPresets, textPresets} from './started-card.presets';
+import {StartedCardProps} from './started-card.props';
+import styles from './styles';
 
 export const StartedCard = (props: StartedCardProps) => {
-  // grab the props
   const {
     preset = 'primary',
     text,
@@ -33,23 +32,11 @@ export const StartedCard = (props: StartedCardProps) => {
       onPress={preset !== 'disabled' ? onPress : undefined}
       {...rest}>
       <ImageBackground
-        source={{ uri: imageUri }}
-        style={{ width: '100%', height: '100%' }}
-        borderRadius={12}
-      >
-        <View
-          style={{
-            width: '100%',
-            height: 70,
-            justifyContent: 'center',
-            alignItems: 'center',
-            bottom: -95,
-            borderRadius: 10,
-
-          }}>
-          {content}
-        </View>
+        source={{uri: imageUri}}
+        style={styles.imageBackground}
+        borderRadius={12}>
+        <View style={styles.contentContainer}>{content}</View>
       </ImageBackground>
-    </TouchableOpacity >
+    </TouchableOpacity>
   );
 };
