@@ -53,15 +53,16 @@ export const Button = (props: ButtonProps) => {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                paddingHorizontal: 10,
+
               }
               : {
                 flexDirection: 'column',
-                padding: 20,
+                paddingLeft: 40,
+                paddingVertical: 25,
                 width: (sizing.width - 20) * 0.5,
-                height: 140,
+                height: 150,
                 justifyContent: 'space-between',
-                alignItems: 'flex-start',
+                alignItems: 'center',
               }
           }>
           {iconLeft ? (
@@ -69,12 +70,15 @@ export const Button = (props: ButtonProps) => {
               style={
                 preset === 'fourth' && {
                   backgroundColor: colors.palette.darkGreen,
-                  width: 40,
-                  height: 40,
+                  width: 30,
+                  height: 30,
                   justifyContent: 'center',
                   alignItems: 'center',
                   borderRadius: 8,
-                  marginBottom: 15,
+                  alignSelf: 'flex-start',
+                  marginTop: 5,
+                  marginLeft: -10,
+
                 }
               }>
               <Icon
@@ -82,7 +86,7 @@ export const Button = (props: ButtonProps) => {
                 style={
                   preset !== 'fourth'
                     ? { width: 30, height: 30 }
-                    : { width: 30, height: 30 }
+                    : { width: 20, height: 20 }
                 }
               />
             </View>
@@ -90,6 +94,8 @@ export const Button = (props: ButtonProps) => {
           <View
             style={{
               flex: 1,
+              marginLeft: preset === 'fourth' ? 10 : 0,
+
             }}>
             {content}
             {subText && (
@@ -105,6 +111,7 @@ export const Button = (props: ButtonProps) => {
                       lineHeight: 18,
                       height: 18,
                       marginTop: 5,
+
                     }
                 }
                 subText={true}
