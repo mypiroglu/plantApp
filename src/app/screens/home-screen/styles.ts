@@ -8,6 +8,7 @@ interface Styles {
   searchImage: ViewStyle;
   searchInput: ViewStyle;
   getStarted: TextStyle;
+  flatList: ViewStyle;
 }
 
 const styles: Styles = StyleSheet.create<Styles>({
@@ -15,6 +16,10 @@ const styles: Styles = StyleSheet.create<Styles>({
     flex: 1,
     backgroundColor: colors.palette.offWhite,
     paddingHorizontal: sizing.padding,
+  },
+  flatList: {
+    flex: 1,
+    backgroundColor: colors.palette.offWhite,
   },
   header: {
     marginTop: sizing.padding,

@@ -5,7 +5,7 @@ import {
   TextInput,
   FlatList,
   ActivityIndicator,
-
+  SafeAreaView,
   StatusBar,
 } from 'react-native';
 import { Button, StartedCard, CategoryCard, Text, Icon } from '../../components';
@@ -44,7 +44,7 @@ export const HomeScreen: React.FC = () => {
   }, [dispatch]);
 
   const renderHeader = () => (
-    <>
+    <View style={{ flex: 1, marginTop: 20 }}>
       <View style={styles.header}>
         <Text preset={'black'}>Hi, plant lover!</Text>
         <Text preset={'third'}>Good Afternoon! ⛅</Text>
@@ -94,7 +94,7 @@ export const HomeScreen: React.FC = () => {
           keyExtractor={item => item.id}
         />
       )}
-    </>
+    </View>
   );
 
   const renderCategoryItem = ({ item }) => (
@@ -108,21 +108,21 @@ export const HomeScreen: React.FC = () => {
   );
   StatusBar.setBarStyle('dark-content', true);
   return (
-
-
-
-    <FlatList
-      showsVerticalScrollIndicator={false}
-      style={styles.flatList}
-      ListHeaderComponent={renderHeader}
-      data={categoriesIsLoading ? [] : categoriesData}
-      renderItem={renderCategoryItem}
-      keyExtractor={item => item.id}
-      numColumns={2}
-      ItemSeparatorComponent={() => <View style={styles.separator} />}
-    />
-
-
-
+    <SafeAreaView style={{
+      flex: 1,
+      marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+      marginBottom: sizing.height < 700 ? 47 : 80,
+    }}>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        style={styles.flatList}
+        ListHeaderComponent={renderHeader}
+        data={categoriesIsLoading ? [] : categoriesData}
+        renderItem={renderCategoryItem}
+        keyExtractor={item => item.id}
+        numColumns={2}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+      />
+    </SafeAreaView>
   );
 };

@@ -22,7 +22,7 @@ const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({
 }) => (
   <TouchableOpacity
     style={{
-      top: sizing.height < 700 ? -35 : -35,
+      top: -15,
       justifyContent: 'center',
       alignItems: 'center',
 
@@ -30,18 +30,18 @@ const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({
     onPress={onPress}>
     <View
       style={{
-        width: sizing.height < 700 ? 64 : 84,
-        height: sizing.height < 700 ? 64 : 84,
-        borderRadius: sizing.height < 700 ? 32 : 42,
+        width: sizing.height < 700 ? 64 : 74,
+        height: sizing.height < 700 ? 64 : 74,
+        borderRadius: sizing.height < 700 ? 32 : 37,
         backgroundColor: colors.palette.ligtGreen,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
       <View
         style={{
-          width: sizing.height < 700 ? 54 : 74,
-          height: sizing.height < 700 ? 54 : 74,
-          borderRadius: sizing.height < 700 ? 27 : 37,
+          width: sizing.height < 700 ? 54 : 64,
+          height: sizing.height < 700 ? 54 : 64,
+          borderRadius: sizing.height < 700 ? 27 : 32,
           backgroundColor: colors.palette.green,
           justifyContent: 'center',
           alignItems: 'center',
@@ -61,83 +61,87 @@ const PlusScreen: React.FC = () => {
 const MyTabs: React.FC = () => {
   return (
 
-    <View style={{ flex: 1, backgroundColor: "red" }}>
-      <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
-        <Tab.Navigator
+    <View style={{
+      height: sizing.height, backgroundColor: colors.palette.offWhite
+    }}>
+      <Tab.Navigator
 
-          screenOptions={{
-            headerShown: false,
-            tabBarActiveTintColor: colors.palette.green,
-            tabBarInactiveTintColor: colors.palette.grey,
-            tabBarStyle: {
-              height: 100,
-              bottom: -30,
-            },
-            tabBarLabelStyle: {
-              fontSize: 12,
-              fontWeight: '400',
-              lineHeight: 11.85,
-              letterSpacing: -0.24,
-              top: sizing.height < 700 ? -40 : 0,
-            },
-            tabBarIconStyle: {
-              top: sizing.height < 700 ? -20 : 0,
-            },
-          }}>
-          <Tab.Screen
-            name="Home"
-            component={HomeStack}
-            options={{
-              tabBarIcon: ({ focused }) => (
-                <View style={styles.iconContainer}>
-                  <Icon icon={focused ? 'shome' : 'uhome'} />
-                </View>
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="Diagnose"
-            component={HomeStack}
-            options={{
-              tabBarIcon: ({ focused }) => (
-                <View style={styles.iconContainer}>
-                  <Icon icon={focused ? 'sdiagnose' : 'udiagnose'} />
-                </View>
-              ),
-            }}
-          />
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: colors.palette.green,
+          tabBarInactiveTintColor: colors.palette.grey,
+          tabBarStyle: {
+            position: 'absolute',
+            zIndex: 999,
+          },
+          tabBarLabelStyle: {
+            fontSize: sizing.height < 700 ? 10 : 12,
+            fontWeight: '400',
+            lineHeight: sizing.height < 700 ? 11.85 : 14.82,
+            letterSpacing: -0.24,
+            textAlign: 'center',
 
-          <Tab.Screen
-            name="Plus"
-            component={PlusScreen}
-            options={{
-              tabBarButton: props => <CustomTabBarButton {...props} />,
-            }}
-          />
-          <Tab.Screen
-            name="My Garden"
-            component={HomeStack}
-            options={{
-              tabBarIcon: ({ focused }) => (
-                <View style={styles.iconContainer}>
-                  <Icon icon={focused ? 'sgarden' : 'ugarden'} />
-                </View>
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="Profile"
-            component={HomeStack}
-            options={{
-              tabBarIcon: ({ focused }) => (
-                <View style={styles.iconContainer}>
-                  <Icon icon={focused ? 'sprofile' : 'uprofile'} />
-                </View>
-              ),
-            }}
-          />
-        </Tab.Navigator>
-      </SafeAreaView>
+          },
+          tabBarIconStyle: {
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+
+
+        }}>
+        <Tab.Screen
+          name="Home"
+          component={HomeStack}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View style={styles.iconContainer}>
+                <Icon icon={focused ? 'shome' : 'uhome'} />
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Diagnose"
+          component={HomeStack}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View style={styles.iconContainer}>
+                <Icon icon={focused ? 'sdiagnose' : 'udiagnose'} />
+              </View>
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Plus"
+          component={PlusScreen}
+          options={{
+            tabBarButton: props => <CustomTabBarButton {...props} />,
+          }}
+        />
+        <Tab.Screen
+          name="My Garden"
+          component={HomeStack}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View style={styles.iconContainer}>
+                <Icon icon={focused ? 'sgarden' : 'ugarden'} />
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={HomeStack}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View style={styles.iconContainer}>
+                <Icon icon={focused ? 'sprofile' : 'uprofile'} />
+              </View>
+            ),
+          }}
+        />
+      </Tab.Navigator>
     </View >
 
   );
