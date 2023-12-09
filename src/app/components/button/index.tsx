@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
-import { colors } from '../../utils';
+import { ActivityIndicator, Pressable, View } from 'react-native';
+import { colors, sizing } from '../../utils';
 import { Text, Icon } from '..';
 import { viewPresets, textPresets } from './button.presets';
 import { ButtonProps } from './button.props';
@@ -39,37 +39,93 @@ export const Button = (props: ButtonProps) => {
   );
 
   return (
-    <TouchableOpacity
+    <Pressable
       style={viewStyles}
       onPress={preset !== 'disabled' ? onPress : undefined}
       {...rest}>
       {loading ? (
         <ActivityIndicator size="small" color={colors.palette.white} />
-      ) : (
+      ) : preset !== 'close' ? (
         <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingHorizontal: 10,
-          }}>
-          {iconLeft ?
-            <Icon icon={iconLeft} style={{ width: 40, height: 40 }} />
-            : null}
-          <View style={{ flex: 1 }}>
+          style={
+            preset !== 'fourth'
+              ? {
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingHorizontal: 10,
+              }
+              : {
+                flexDirection: 'column',
+                padding: 20,
+                width: (sizing.width - 20) * 0.5,
+                height: 140,
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+              }
+          }>
+          {iconLeft ? (
+            <View
+              style={
+                preset === 'fourth' && {
+                  backgroundColor: colors.palette.darkGreen,
+                  width: 40,
+                  height: 40,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 8,
+                  marginBottom: 15,
+                }
+              }>
+              <Icon
+                icon={iconLeft}
+                style={
+                  preset !== 'fourth'
+                    ? { width: 30, height: 30 }
+                    : { width: 30, height: 30 }
+                }
+              />
+            </View>
+          ) : null}
+          <View
+            style={{
+              flex: 1,
+            }}>
             {content}
             {subText && (
               <Text
                 text={subText}
-                gradient={true}
-                style={textStyles}
+                gradient={preset !== 'fourth' ? true : false}
+                style={
+                  preset !== 'fourth'
+                    ? textStyles
+                    : {
+                      fontSize: 13,
+                      fontWeight: '400',
+                      lineHeight: 18,
+                      height: 18,
+                      marginTop: 5,
+                    }
+                }
                 subText={true}
               />
             )}
           </View>
           {iconRight ? <Icon icon={iconRight} /> : null}
         </View>
+      ) : (
+        <View
+          style={{
+            width: 24,
+            height: 24,
+            borderRadius: 12,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: colors.palette.darkGreen,
+          }}>
+          <Icon icon={'close'} />
+        </View>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 };

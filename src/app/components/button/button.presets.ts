@@ -28,6 +28,12 @@ export const viewPresets: Record<string, ViewStyle> = {
     justifyContent: 'center',
     alignItems: 'center',
   } as ViewStyle,
+  fourth: {
+    ...BASE_VIEW,
+    backgroundColor: colors.palette.midDarkGreen,
+    width: (sizing.width - 100) * 0.5,
+    height: (sizing.width - 150) * 0.5,
+  } as ViewStyle,
   disabled: {...BASE_VIEW, backgroundColor: colors.palette.grey} as ViewStyle,
 };
 
@@ -35,6 +41,17 @@ export const textPresets: Record<ButtonPresetNames, TextStyle> = {
   primary: {...BASE_TEXT} as TextStyle,
   secondary: {...BASE_TEXT, color: colors.palette.black} as TextStyle,
   third: {...BASE_TEXT, fontWeight: '700'} as TextStyle,
+  fourth: {
+    ...BASE_TEXT,
+    color: colors.palette.white,
+    textAlign: 'left',
+    width: (sizing.width - 10) * 0.5,
+    height: 24,
+    fontSize: 20,
+    fontWeight: '500',
+    marginLeft: -16,
+    marginTop: 10,
+  } as TextStyle,
   disabled: {...BASE_TEXT, color: colors.palette.white} as TextStyle,
 };
 

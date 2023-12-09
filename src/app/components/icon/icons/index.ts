@@ -11,6 +11,9 @@ export const icons = {
   mail: require('./mail.png'),
   arrow: require('./arrow.png'),
   search: require('./search.png'),
+  close: require('./close.png'),
+  scanner: require('./scanner.png'),
+  speedometer: require('./speedometer.png'),
 };
 
 export type IconTypes = keyof typeof icons;
