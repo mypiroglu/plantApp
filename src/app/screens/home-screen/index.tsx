@@ -5,6 +5,8 @@ import {
   TextInput,
   FlatList,
   ActivityIndicator,
+
+  StatusBar,
 } from 'react-native';
 import { Button, StartedCard, CategoryCard, Text, Icon } from '../../components';
 import { colors, sizing } from '../../utils';
@@ -104,8 +106,10 @@ export const HomeScreen: React.FC = () => {
     />
 
   );
-
+  StatusBar.setBarStyle('dark-content', true);
   return (
+
+
 
     <FlatList
       showsVerticalScrollIndicator={false}
@@ -117,6 +121,8 @@ export const HomeScreen: React.FC = () => {
       numColumns={2}
       ItemSeparatorComponent={() => <View style={styles.separator} />}
     />
+
+
 
   );
 };
