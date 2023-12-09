@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { ImageBackground, TouchableOpacity, View } from 'react-native';
-import { colors } from '../../utils';
-import { Text } from '..';
-import { viewPresets, textPresets } from './category-card.presets';
-import { StartedCardProps } from './category-card.props';
+import React from 'react';
+import {ImageBackground, TouchableOpacity, View} from 'react-native';
+import {Text} from '..';
+import {viewPresets, textPresets} from './category-card.presets';
+import {StartedCardProps} from './category-card.props';
 
 export const CategoryCard = (props: StartedCardProps) => {
   // grab the props
@@ -33,17 +32,15 @@ export const CategoryCard = (props: StartedCardProps) => {
       onPress={preset !== 'disabled' ? onPress : undefined}
       {...rest}>
       <ImageBackground
-        source={{ uri: imageUri }}
-        style={{ width: '100%', height: '100%' }}
-        borderRadius={12}
-      >
+        source={{uri: imageUri}}
+        style={{width: '100%', height: '100%'}}
+        borderRadius={12}>
         <View
           style={{
             flex: 1,
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             padding: 10,
-
           }}>
           {content}
         </View>

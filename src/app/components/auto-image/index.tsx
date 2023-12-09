@@ -4,6 +4,7 @@ import {
   ImageProps as DefaultImageProps,
   ImageURISource,
 } from 'react-native';
+import styles from './style';
 
 type ImageProps = DefaultImageProps & {
   source: ImageURISource;
@@ -18,7 +19,7 @@ export const AutoImage = (props: ImageProps) => {
         setImageSize({ width, height });
       });
     } else {
-      setImageSize({ width: 25, height: 25 });
+      setImageSize(styles.imageSize);
     }
   }, []);
 
