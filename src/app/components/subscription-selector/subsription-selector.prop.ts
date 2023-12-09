@@ -1,5 +1,5 @@
 export interface SubscriptionButtonProps {
-  option: SubscriptionOption;
+  option: any;
   isSelected: boolean;
-  onSelect: (option: SubscriptionOption) => void;
+  onSelect: (option: any) => void;
 }
