@@ -22,8 +22,8 @@ export const viewPresets: Record<string, ViewStyle> = {
   primary: {...BASE_VIEW} as ViewStyle,
 };
 
-export const textPresets: Record<StartedCardNames, TextStyle> = {
+export const textPresets: Record<CategoryCardNames, TextStyle> = {
   primary: {...BASE_TEXT} as TextStyle,
 };
 
-export type StartedCardNames = keyof typeof viewPresets;
+export type CategoryCardNames = keyof typeof viewPresets;

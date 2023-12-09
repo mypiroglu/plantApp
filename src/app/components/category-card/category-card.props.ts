@@ -4,13 +4,13 @@ import {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
-import {StartedCardNames} from './category-card.presets';
+import {CategoryCardNames} from './category-card.presets';
 
-export interface StartedCardProps extends TouchableOpacityProps {
+export interface CategoryCardProps extends TouchableOpacityProps {
   text?: string;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   imageUri?: string;
-  preset?: StartedCardNames;
+  preset?: CategoryCardNames;
   children?: React.ReactNode;
 }

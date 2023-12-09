@@ -4,7 +4,7 @@ import {
   ImageProps as DefaultImageProps,
   ImageURISource,
 } from 'react-native';
-import styles from './style';
+import styles from './styles';
 
 type ImageProps = DefaultImageProps & {
   source: ImageURISource;

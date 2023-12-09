@@ -2,9 +2,10 @@ import React from 'react';
 import {ImageBackground, TouchableOpacity, View} from 'react-native';
 import {Text} from '..';
 import {viewPresets, textPresets} from './category-card.presets';
-import {StartedCardProps} from './category-card.props';
+import {CategoryCardProps} from './category-card.props';
+import styles from './styles';
 
-export const CategoryCard = (props: StartedCardProps) => {
+export const CategoryCard = (props: CategoryCardProps) => {
   // grab the props
   const {
     preset = 'primary',
@@ -33,17 +34,9 @@ export const CategoryCard = (props: StartedCardProps) => {
       {...rest}>
       <ImageBackground
         source={{uri: imageUri}}
-        style={{width: '100%', height: '100%'}}
+        style={styles.imageBackground}
         borderRadius={12}>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            padding: 10,
-          }}>
-          {content}
-        </View>
+        <View style={styles.contentContainer}>{content}</View>
       </ImageBackground>
     </TouchableOpacity>
   );
