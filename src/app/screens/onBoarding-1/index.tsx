@@ -52,7 +52,7 @@ export const OnBoarding1 = ({ navigate }) => {
                   onPress={() => Linking.openURL('https://plantapp.app/terms/')}>
                   Terms of Service
                 </Text>
-                <Text style={styles.termsText} text=" & " />
+                <Text style={[styles.termsText, { marginRight: 5 }]} text=" & " />
                 <Text
                   style={styles.termsText}
                   underline={true}

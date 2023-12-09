@@ -57,6 +57,7 @@ export const Text = (props: TextProps) => {
         underline && {
           borderBottomColor: colors.palette.offGreen,
           borderBottomWidth: .7,
+          height: 15,
         }
       }>
       <RNText
