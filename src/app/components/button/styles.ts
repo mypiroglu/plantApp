@@ -1,7 +1,7 @@
 import {StyleSheet, ViewStyle, TextStyle, ImageStyle} from 'react-native';
 import {colors, sizing} from '../../utils';
 
-interface SubscriptionSelectorPresets {
+interface ButtonPresets {
   container: ViewStyle;
   containerFourth: ViewStyle;
   leftIconContainer: ViewStyle;
@@ -12,7 +12,7 @@ interface SubscriptionSelectorPresets {
   contentContainer: ViewStyle;
 }
 
-export default StyleSheet.create<SubscriptionSelectorPresets>({
+export default StyleSheet.create<ButtonPresets>({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',

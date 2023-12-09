@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {ActivityIndicator, Pressable, View} from 'react-native';
-import {colors} from '../../utils';
-import {Text, Icon} from '..';
-import {viewPresets, textPresets} from './button.presets';
-import {ButtonProps} from './button.props';
+import React from 'react';
+import { ActivityIndicator, Pressable, View } from 'react-native';
+import { colors } from '../../utils';
+import { Text, Icon } from '..';
+import { viewPresets, textPresets } from './button.presets';
+import { ButtonProps } from './button.props';
 import styles from './styles';
 
 export const Button = (props: ButtonProps) => {
@@ -28,8 +28,8 @@ export const Button = (props: ButtonProps) => {
   const viewStyles = [
     viewStyle,
     styleOverride,
-    ...(width ? [{width}] : []),
-    ...(height ? [{height}] : []),
+    ...(width ? [{ width }] : []),
+    ...(height ? [{ height }] : []),
   ];
   const textStyle = textPresets[preset];
   const textStyles = [textStyle, textStyleOverride];
@@ -63,7 +63,7 @@ export const Button = (props: ButtonProps) => {
           <View
             style={[
               styles.contentContainer,
-              {marginLeft: preset === 'fourth' ? 10 : 0},
+              { marginLeft: preset === 'fourth' ? 10 : 0 },
             ]}>
             {content}
             {subText && (
