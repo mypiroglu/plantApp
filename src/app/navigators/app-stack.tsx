@@ -3,7 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { CardStyleInterpolators } from '@react-navigation/stack';
-import { OnBoarding } from '../screens';
+import { OnBoarding4 } from '../screens';
 import MyTabs from './bottom-tab';
 import OnBoardingStack from './on-boarding-stack';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -44,6 +44,7 @@ const AppStack: React.FC = () => {
             name="on-boarding-stack"
             component={OnBoardingStack}
           />
+          <Stack.Screen name="paywall-screen" component={OnBoarding4} />
           <Stack.Screen name="bottom-tab" component={MyTabs} />
         </Stack.Navigator>
       </NavigationContainer>

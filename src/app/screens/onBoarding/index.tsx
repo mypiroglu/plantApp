@@ -6,18 +6,18 @@ import { sizing } from '../../utils';
 
 export const OnBoarding = ({ navigation }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const totalSteps = 4;
+  const totalSteps = 3;
   const scrollViewRef = useRef();
-  useEffect(() => {
-    currentStep === 3 ? StatusBar.setBarStyle('light-content', true) : StatusBar.setBarStyle('dark-content', true);
-  }
-    , [currentStep])
+
   const nextStep = () => {
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
-      scrollViewRef.current.scrollTo({ x: sizing.width * (currentStep + 1), animated: true });
+      scrollViewRef.current.scrollTo({
+        x: sizing.width * (currentStep + 1),
+        animated: true,
+      });
     } else {
-      navigation.navigate('bottom-tab');
+      navigation.navigate('paywall-screen');
     }
   };
 
@@ -26,11 +26,12 @@ export const OnBoarding = ({ navigation }) => {
       ref={scrollViewRef}
       horizontal
       pagingEnabled
-      onMomentumScrollEnd={(e) => {
-        const activeStep = Math.floor(e.nativeEvent.contentOffset.x / e.nativeEvent.layoutMeasurement.width);
+      onMomentumScrollEnd={e => {
+        const activeStep = Math.floor(
+          e.nativeEvent.contentOffset.x / e.nativeEvent.layoutMeasurement.width,
+        );
         setCurrentStep(activeStep);
-      }}
-    >
+      }}>
       <View style={{ width: sizing.width, height: sizing.height }}>
         <OnBoarding1 navigate={nextStep} />
       </View>
@@ -39,9 +40,6 @@ export const OnBoarding = ({ navigation }) => {
       </View>
       <View style={{ width: sizing.width, height: sizing.height }}>
         <OnBoarding3 navigate={nextStep} />
-      </View>
-      <View style={{ width: sizing.width, height: sizing.height }}>
-        <OnBoarding4 navigate={nextStep} />
       </View>
     </ScrollView>
   );

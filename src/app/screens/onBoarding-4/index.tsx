@@ -1,8 +1,12 @@
 import React from 'react';
-import {ImageBackground, View, SafeAreaView, FlatList} from 'react-native';
-import {Text, Button, SubscriptionSelector} from '../../components';
+import { ImageBackground, View, SafeAreaView, FlatList, StatusBar } from 'react-native';
+import { Text, Button, SubscriptionSelector } from '../../components';
 import styles from './styles';
-export const OnBoarding4 = ({navigate}) => {
+import { useNavigation } from '@react-navigation/native';
+
+export const OnBoarding4 = () => {
+  const navigation = useNavigation();
+  StatusBar.setBarStyle('light-content', true);
   const features = [
     {
       title: 'Unlimited',
@@ -20,7 +24,11 @@ export const OnBoarding4 = ({navigate}) => {
       icon: 'scan',
     },
   ];
-  const renderItem = ({item}) => (
+  const navigate = () => {
+    navigation.navigate('bottom-tab');
+  }
+
+  const renderItem = ({ item }) => (
     <View style={styles.renderItemContainer}>
       <Button
         preset={'fourth'}
