@@ -4,7 +4,7 @@ import { Text, Button, SubscriptionSelector } from '../../components';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-export const OnBoarding4 = () => {
+export const PaywallScreen = () => {
   const navigation = useNavigation();
   StatusBar.setBarStyle('light-content', true);
   const features = [

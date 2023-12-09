@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, ScrollView, StatusBar } from 'react-native';
 
-import { OnBoarding1, OnBoarding2, OnBoarding3, OnBoarding4 } from '..';
+import { OnBoarding1, OnBoarding2, OnBoarding3 } from '..';
 import { sizing } from '../../utils';
 
 export const OnBoarding = ({ navigation }) => {
