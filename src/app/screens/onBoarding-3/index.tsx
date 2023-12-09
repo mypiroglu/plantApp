@@ -3,8 +3,18 @@ import { Image, View, SafeAreaView } from "react-native";
 import { Text, Button } from "../../components";
 import styles from "./styles";
 import { sizing } from "../../utils";
+import AsyncStorage from "@react-native-community/async-storage";
+
 export const OnBoarding3 = ({ navigate }) => {
 
+  const skipOnboarding = async () => {
+    try {
+      await AsyncStorage.setItem('hasSkippedOnboarding', 'true');
+      navigate();
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <SafeAreaView style={styles.root}>
       <View style={{ flexDirection: "row", paddingHorizontal: 20 }}>
@@ -37,7 +47,7 @@ export const OnBoarding3 = ({ navigate }) => {
           style={styles.image}
           resizeMode="contain"
         />
-        <Button text="Continue" style={{ marginBottom: 20, top: "-13%" }} onPress={navigate} />
+        <Button text="Continue" style={{ marginBottom: 20, top: "-13%" }} onPress={skipOnboarding} />
         <View
           style={{
             flexDirection: "row",

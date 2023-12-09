@@ -12,24 +12,22 @@ import { colors } from '../utils';
 const AppStack: React.FC = () => {
   const [onBoard, setOnBoard] = useState<boolean>(false);
 
-  // const veriGetir = async () => {
-  //   try {
-  //     const value = await AsyncStorage.getItem('@first');
-  //     if (value !== null) {
-  //       setOnBoard(value);
-  //       console.log('value', value);
-  //     }
-  //   } catch (e) {
-  //     // Veri okuma hatası
-  //   }
-  // };
 
-  // useEffect(() => {
-  //   veriGetir();
-  // }, []);
 
+  const checkIfOnboardingSkipped = async () => {
+    try {
+      const hasSkipped = await AsyncStorage.getItem('hasSkippedOnboarding');
+      setOnBoard(hasSkipped === 'true' ? true : false);
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  };
   const Stack = createStackNavigator();
-
+  useEffect(() => {
+    checkIfOnboardingSkipped();
+  }
+    , []);
   return (
     <View style={{ flex: 1, backgroundColor: colors.palette.white }}>
       <NavigationContainer>
@@ -40,10 +38,12 @@ const AppStack: React.FC = () => {
               CardStyleInterpolators.forFadeFromBottomAndroid,
             headerShown: false,
           }}>
-          <Stack.Screen
-            name="on-boarding-stack"
-            component={OnBoardingStack}
-          />
+          {!onBoard && (
+            <Stack.Screen
+              name="on-boarding-stack"
+              component={OnBoardingStack}
+            />
+          )}
           <Stack.Screen name="paywall-screen" component={PaywallScreen} />
           <Stack.Screen name="bottom-tab" component={MyTabs} />
         </Stack.Navigator>
