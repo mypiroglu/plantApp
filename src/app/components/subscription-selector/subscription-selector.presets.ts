@@ -1,7 +1,20 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import {colors, sizing} from '../../utils';
 
-export default StyleSheet.create({
+interface SubscriptionSelectorPresets {
+  container: ViewStyle;
+  button: ViewStyle;
+  selected: ViewStyle;
+  radioButton: ViewStyle;
+  selectedRadioButton: ViewStyle;
+  radioButtonSelected: ViewStyle;
+  buttonText: TextStyle;
+  buttonSubText: TextStyle;
+  saveText: TextStyle;
+  saveWrapper: ViewStyle;
+}
+
+export default StyleSheet.create<SubscriptionSelectorPresets>({
   container: {
     justifyContent: 'center',
     alignItems: 'center',

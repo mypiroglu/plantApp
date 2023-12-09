@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { ActivityIndicator, Pressable, View } from 'react-native';
-import { colors, sizing } from '../../utils';
-import { Text, Icon } from '..';
-import { viewPresets, textPresets } from './button.presets';
-import { ButtonProps } from './button.props';
+import {ActivityIndicator, Pressable, View} from 'react-native';
+import {colors} from '../../utils';
+import {Text, Icon} from '..';
+import {viewPresets, textPresets} from './button.presets';
+import {ButtonProps} from './button.props';
+import styles from './styles';
 
 export const Button = (props: ButtonProps) => {
-  // grab the props
   const {
     preset = 'primary',
     text,
@@ -28,8 +28,8 @@ export const Button = (props: ButtonProps) => {
   const viewStyles = [
     viewStyle,
     styleOverride,
-    ...(width ? [{ width }] : []),
-    ...(height ? [{ height }] : []),
+    ...(width ? [{width}] : []),
+    ...(height ? [{height}] : []),
   ];
   const textStyle = textPresets[preset];
   const textStyles = [textStyle, textStyleOverride];
@@ -48,72 +48,29 @@ export const Button = (props: ButtonProps) => {
       ) : preset !== 'close' ? (
         <View
           style={
-            preset !== 'fourth'
-              ? {
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-
-              }
-              : {
-                flexDirection: 'column',
-                paddingLeft: 40,
-                paddingVertical: 25,
-                width: (sizing.width - 20) * 0.5,
-                height: 150,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }
+            preset !== 'fourth' ? styles.container : styles.containerFourth
           }>
           {iconLeft ? (
-            <View
-              style={
-                preset === 'fourth' && {
-                  backgroundColor: colors.palette.darkGreen,
-                  width: 30,
-                  height: 30,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 8,
-                  alignSelf: 'flex-start',
-                  marginTop: 5,
-                  marginLeft: -10,
-
-                }
-              }>
+            <View style={preset === 'fourth' && styles.leftIconContainer}>
               <Icon
                 icon={iconLeft}
                 style={
-                  preset !== 'fourth'
-                    ? { width: 30, height: 30 }
-                    : { width: 20, height: 20 }
+                  preset !== 'fourth' ? styles.iconLeft : styles.iconFourth
                 }
               />
             </View>
           ) : null}
           <View
-            style={{
-              flex: 1,
-              marginLeft: preset === 'fourth' ? 10 : 0,
-
-            }}>
+            style={[
+              styles.contentContainer,
+              {marginLeft: preset === 'fourth' ? 10 : 0},
+            ]}>
             {content}
             {subText && (
               <Text
                 text={subText}
                 gradient={preset !== 'fourth' ? true : false}
-                style={
-                  preset !== 'fourth'
-                    ? textStyles
-                    : {
-                      fontSize: 13,
-                      fontWeight: '400',
-                      lineHeight: 18,
-                      height: 18,
-                      marginTop: 5,
-
-                    }
-                }
+                style={preset !== 'fourth' ? textStyles : styles.subTextFourth}
                 subText={true}
               />
             )}
@@ -121,15 +78,7 @@ export const Button = (props: ButtonProps) => {
           {iconRight ? <Icon icon={iconRight} /> : null}
         </View>
       ) : (
-        <View
-          style={{
-            width: 24,
-            height: 24,
-            borderRadius: 12,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: colors.palette.darkGreen,
-          }}>
+        <View style={styles.closeContainer}>
           <Icon icon={'close'} />
         </View>
       )}
