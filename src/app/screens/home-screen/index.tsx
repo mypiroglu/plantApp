@@ -13,6 +13,7 @@ import { colors } from '../../utils';
 import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData, getQuestions } from '../../api';
+import { useNavigation } from '@react-navigation/native';
 
 interface RootState {
   categories: {
@@ -26,6 +27,7 @@ interface RootState {
 }
 
 export const HomeScreen: React.FC = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const categoriesData = useSelector(
     (state: RootState) => state.categories.data?.data,
@@ -67,7 +69,7 @@ export const HomeScreen: React.FC = () => {
         <Button
           text="FREE Premium Available"
           subText="Tap to upgrade your account!"
-          onPress={() => dispatch(getData())}
+          onPress={() => navigation.navigate('paywall-screen')}
           iconLeft={'mail'}
           preset={'third'}
           iconRight={'arrow'}

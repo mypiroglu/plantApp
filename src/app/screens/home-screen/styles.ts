@@ -16,6 +16,8 @@ interface Styles {
   getStarted: TextStyle;
   flatList: ViewStyle;
   statusContainer: ViewStyle;
+  separator: ViewStyle;
+  inputContainer: ViewStyle;
 }
 
 const styles: Styles = StyleSheet.create<Styles>({
