@@ -34,7 +34,7 @@ const styles: Styles = StyleSheet.create<Styles>({
     paddingTop: 100,
   },
   headerContainer: {
-    height: sizing.height < 700 ? sizing.height / 3.5 : sizing.height / 2.2,
+    height: sizing.height < 700 ? sizing.height / 3.5 : sizing.height / 2.3,
     width: '100%',
   },
   headerTextContainer: {

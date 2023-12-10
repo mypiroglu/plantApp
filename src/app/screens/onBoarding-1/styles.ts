@@ -20,7 +20,7 @@ const styles: Styles = StyleSheet.create<Styles>({
   root: {
     flex: 1,
     backgroundColor: colors.palette.white,
-    paddingTop: '5%',
+    paddingTop: '10%',
   },
   linearGradientContainer: {
     flex: 1,

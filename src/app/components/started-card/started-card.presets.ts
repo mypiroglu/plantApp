@@ -6,7 +6,7 @@ const BASE_VIEW: ViewStyle = {
   marginBottom: 10,
   borderRadius: 12,
   width: sizing.width * 0.6,
-  marginRight: -20,
+  marginRight: -24,
 };
 
 const BASE_TEXT: TextStyle = {

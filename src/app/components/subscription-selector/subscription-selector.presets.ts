@@ -12,6 +12,7 @@ interface SubscriptionSelectorPresets {
   buttonSubText: TextStyle;
   saveText: TextStyle;
   saveWrapper: ViewStyle;
+  linearGradient: ViewStyle;
 }
 
 export default StyleSheet.create<SubscriptionSelectorPresets>({
@@ -22,7 +23,6 @@ export default StyleSheet.create<SubscriptionSelectorPresets>({
   button: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
     borderRadius: 14,
     borderWidth: 1,
     borderColor: colors.palette.offGreen,
@@ -87,7 +87,16 @@ export default StyleSheet.create<SubscriptionSelectorPresets>({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 0,
     backgroundColor: colors.palette.green,
-    top: -15,
-    left: sizing.height > 900 ? 55 : sizing.height > 800 ? 40 : 0,
+    alignSelf: 'flex-start',
+    position: 'absolute',
+    right: 0,
+  },
+  linearGradient: {
+    flex: 1,
+    paddingHorizontal: sizing.padding,
+    borderRadius: 14,
+    height: 58,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

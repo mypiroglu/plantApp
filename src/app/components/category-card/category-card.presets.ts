@@ -16,6 +16,7 @@ const BASE_TEXT: TextStyle = {
   color: colors.palette.black,
   textAlign: 'left',
   lineHeight: 24,
+  fontSize: 16,
 };
 
 export const viewPresets: Record<string, ViewStyle> = {

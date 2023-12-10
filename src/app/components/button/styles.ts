@@ -17,6 +17,7 @@ export default StyleSheet.create<ButtonPresets>({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 10,
   },
   containerFourth: {
     flexDirection: 'column',
