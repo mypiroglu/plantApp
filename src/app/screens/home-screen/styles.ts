@@ -4,6 +4,7 @@ import {
   ViewStyle,
   Platform,
   StatusBar,
+  ImageStyle,
 } from 'react-native';
 import {colors, sizing} from '../../utils';
 
@@ -11,7 +12,7 @@ interface Styles {
   container: ViewStyle;
   header: ViewStyle;
   searchContainer: ViewStyle;
-  searchImage: ViewStyle;
+  searchImage: ImageStyle;
   searchInput: ViewStyle;
   getStarted: TextStyle;
   flatList: ViewStyle;
@@ -80,6 +81,7 @@ const styles: Styles = StyleSheet.create<Styles>({
     alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: sizing.padding,
   },
   statusContainer: {
     flex: 1,
