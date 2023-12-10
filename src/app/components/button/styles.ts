@@ -39,8 +39,8 @@ export default StyleSheet.create<ButtonPresets>({
     marginLeft: -10,
   },
   iconLeft: {
-    width: 30,
-    height: 30,
+    width: 50,
+    height: 50,
   },
   iconFourth: {
     width: 20,

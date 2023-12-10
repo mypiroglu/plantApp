@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   ImageBackground,
@@ -8,11 +8,11 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-import {Button, StartedCard, CategoryCard, Text, Icon} from '../../components';
-import {colors} from '../../utils';
+import { Button, StartedCard, CategoryCard, Text, Icon } from '../../components';
+import { colors } from '../../utils';
 import styles from './styles';
-import {useDispatch, useSelector} from 'react-redux';
-import {getData, getQuestions} from '../../api';
+import { useDispatch, useSelector } from 'react-redux';
+import { getData, getQuestions } from '../../api';
 
 interface RootState {
   categories: {
@@ -44,7 +44,7 @@ export const HomeScreen: React.FC = () => {
   }, [dispatch]);
 
   const renderHeader = () => (
-    <View style={{flex: 1, marginTop: 20}}>
+    <View style={{ flex: 1, marginTop: 20 }}>
       <View style={styles.header}>
         <Text preset={'black'}>Hi, plant lover!</Text>
         <Text preset={'third'}>Good Afternoon! ⛅</Text>
@@ -57,7 +57,6 @@ export const HomeScreen: React.FC = () => {
         <View style={styles.inputContainer}>
           <Icon icon={'search'} />
           <TextInput
-            p
             placeholder={'Search for plants!'}
             style={styles.searchInput}
           />
@@ -85,7 +84,7 @@ export const HomeScreen: React.FC = () => {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={questionsData}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <View style={styles.container}>
               <StartedCard
                 text={item.title}
@@ -100,7 +99,7 @@ export const HomeScreen: React.FC = () => {
     </View>
   );
 
-  const renderCategoryItem = ({item}) => (
+  const renderCategoryItem = ({ item }) => (
     <CategoryCard
       text={item.title}
       imageUri={item.image.url}
