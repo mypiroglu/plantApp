@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ImageBackground,
@@ -42,11 +42,25 @@ export const HomeScreen: React.FC = () => {
   const navigationPaywall = () => {
     navigation.navigate('paywall-screen');
   }
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredCategories, setFilteredCategories] = useState([]);
 
   useEffect(() => {
     !categoriesData && dispatch(getData());
     !questionsData && dispatch(getQuestions());
-  }, [dispatch]);
+    setFilteredCategories(categoriesData);
+  }, [categoriesData, questionsData, dispatch]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      const filteredData = categoriesData.filter(item =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredCategories(filteredData);
+    } else {
+      setFilteredCategories(categoriesData);
+    }
+  }, [searchTerm, categoriesData]);
 
   const renderHeader = () => (
     <View style={{ flex: 1, marginTop: 20 }}>
@@ -62,6 +76,8 @@ export const HomeScreen: React.FC = () => {
         <View style={styles.inputContainer}>
           <Icon icon={'search'} />
           <TextInput
+            value={searchTerm}
+            onChangeText={setSearchTerm}
             placeholder={'Search for plants!'}
             style={styles.searchInput}
           />
@@ -118,7 +134,7 @@ export const HomeScreen: React.FC = () => {
         showsVerticalScrollIndicator={false}
         style={styles.flatList}
         ListHeaderComponent={renderHeader}
-        data={categoriesIsLoading ? [] : categoriesData}
+        data={categoriesIsLoading ? [] : filteredCategories}
         renderItem={renderCategoryItem}
         keyExtractor={item => item.id}
         numColumns={2}
@@ -127,3 +143,10 @@ export const HomeScreen: React.FC = () => {
     </SafeAreaView>
   );
 };
+
+
+
+
+
+
+

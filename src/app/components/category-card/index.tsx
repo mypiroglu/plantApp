@@ -1,12 +1,11 @@
 import React from 'react';
-import {ImageBackground, TouchableOpacity, View} from 'react-native';
-import {Text} from '..';
-import {viewPresets, textPresets} from './category-card.presets';
-import {CategoryCardProps} from './category-card.props';
+import { ImageBackground, TouchableOpacity, View } from 'react-native';
+import { Text } from '..';
+import { viewPresets, textPresets } from './category-card.presets';
+import { CategoryCardProps } from './category-card.props';
 import styles from './styles';
 
 export const CategoryCard = (props: CategoryCardProps) => {
-  // grab the props
   const {
     preset = 'primary',
     text,
@@ -33,7 +32,7 @@ export const CategoryCard = (props: CategoryCardProps) => {
       onPress={preset !== 'disabled' ? onPress : undefined}
       {...rest}>
       <ImageBackground
-        source={{uri: imageUri}}
+        source={{ uri: imageUri }}
         style={styles.imageBackground}
         borderRadius={12}>
         <View style={styles.contentContainer}>{content}</View>
