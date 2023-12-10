@@ -13,7 +13,6 @@ interface Styles {
   button: ViewStyle;
   textContainer: ViewStyle;
   root: ViewStyle;
-  safearea: ViewStyle;
   tappingTextContainer: ViewStyle;
 }
 
@@ -21,10 +20,7 @@ const styles: Styles = StyleSheet.create<Styles>({
   root: {
     flex: 1,
     backgroundColor: colors.palette.white,
-  },
-  safearea: {
-    flex: 1,
-    backgroundColor: colors.palette.white,
+    paddingTop: '5%',
   },
   linearGradientContainer: {
     flex: 1,

@@ -67,7 +67,7 @@ export const PaywallScreen = () => {
           />
           <SubscriptionSelector />
           <Button
-            text={'Start 3 Days Free Trial'}
+            text={'Try free for 3 days'}
             style={styles.trialButton}
             onPress={navigate}
           />
