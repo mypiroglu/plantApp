@@ -1,18 +1,16 @@
 import React from 'react';
-import { Image, Linking, SafeAreaView, View } from 'react-native';
-import { Text, Button } from '../../components';
+import {Image, Linking, SafeAreaView, View} from 'react-native';
+import {Text, Button} from '../../components';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
-export const OnBoarding1 = ({ navigate }) => {
-  const navigation = useNavigation();
 
+export const OnBoarding1 = ({navigate}) => {
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
-      <SafeAreaView style={{ flex: 1 }}>
+    <View style={styles.root}>
+      <SafeAreaView style={styles.safearea}>
         <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
           colors={[
             'white',
             'white',
@@ -23,7 +21,7 @@ export const OnBoarding1 = ({ navigate }) => {
             'white',
           ]}
           style={styles.linearGradientContainer}>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={styles.textContainer}>
             <Text style={styles.welcomeText} preset="black">
               Welcome to{' '}
             </Text>
@@ -40,8 +38,12 @@ export const OnBoarding1 = ({ navigate }) => {
               style={styles.image}
               resizeMode="contain"
             />
-            <Button text="Get Started" style={styles.button} onPress={navigate} />
-            <View style={{ top: "4%" }}>
+            <Button
+              text="Get Started"
+              style={styles.button}
+              onPress={navigate}
+            />
+            <View style={styles.tappingTextContainer}>
               <Text style={styles.termsText}>
                 By tapping next, you are agreeing to PlantID
               </Text>
@@ -49,14 +51,18 @@ export const OnBoarding1 = ({ navigate }) => {
                 <Text
                   style={styles.termsText}
                   underline={true}
-                  onPress={() => Linking.openURL('https://plantapp.app/terms/')}>
+                  onPress={() =>
+                    Linking.openURL('https://plantapp.app/terms/')
+                  }>
                   Terms of Service
                 </Text>
-                <Text style={[styles.termsText, { marginRight: 5 }]} text=" & " />
+                <Text style={[styles.termsText, {marginRight: 5}]} text=" & " />
                 <Text
                   style={styles.termsText}
                   underline={true}
-                  onPress={() => Linking.openURL('https://plantapp.app/privacy/')}>
+                  onPress={() =>
+                    Linking.openURL('https://plantapp.app/privacy/')
+                  }>
                   Privacy Policy
                 </Text>
               </View>

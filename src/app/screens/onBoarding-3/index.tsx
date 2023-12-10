@@ -1,12 +1,11 @@
-import React from "react";
-import { Image, View, SafeAreaView } from "react-native";
-import { Text, Button } from "../../components";
-import styles from "./styles";
-import { sizing } from "../../utils";
-import AsyncStorage from "@react-native-community/async-storage";
+import React from 'react';
+import {Image, View, SafeAreaView} from 'react-native';
+import {Text, Button} from '../../components';
+import styles from './styles';
+import {sizing} from '../../utils';
+import AsyncStorage from '@react-native-community/async-storage';
 
-export const OnBoarding3 = ({ navigate }) => {
-
+export const OnBoarding3 = ({navigate}) => {
   const skipOnboarding = async () => {
     try {
       await AsyncStorage.setItem('hasSkippedOnboarding', 'true');
@@ -17,72 +16,46 @@ export const OnBoarding3 = ({ navigate }) => {
   };
   return (
     <SafeAreaView style={styles.root}>
-      <View style={{ flexDirection: "row", paddingHorizontal: 20 }}>
+      <View style={styles.textContainer}>
         <Text style={styles.welcomeText} preset="black">
-          Get plant
-          {" "}
+          Get plant{' '}
         </Text>
         <Text style={styles.plantText} preset="black">
           care guides
         </Text>
       </View>
       <Image
-        source={require("../../../assets/images/Brush.png")}
+        source={require('../../../assets/images/Brush.png')}
         style={styles.brushImage}
         resizeMode="contain"
       />
       <View style={styles.contentContainer}>
         <Image
-          source={require("../../../assets/images/backgroundLeaf.png")}
+          source={require('../../../assets/images/backgroundLeaf.png')}
           style={styles.imageLeaf}
           resizeMode="contain"
         />
         <Image
-          source={require("../../../assets/images/artwork.png")}
+          source={require('../../../assets/images/artwork.png')}
           style={styles.imageArtwork}
           resizeMode="contain"
         />
         <Image
-          source={require("../../../assets/images/flatPhone.png")}
+          source={require('../../../assets/images/flatPhone.png')}
           style={styles.image}
           resizeMode="contain"
         />
-        <Button text="Continue" style={{ marginBottom: 20, top: "-13%" }} onPress={skipOnboarding} />
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: 32,
-            position: 'absolute',
-            bottom: sizing.height * 0.11,
-          }}>
-          <View
-            style={{
-              width: 6,
-              height: 6,
-              backgroundColor: "gray",
-              borderRadius: 3,
-            }}
-          />
-          <View
-            style={{
-              width: 8,
-              height: 8,
-              backgroundColor: "black",
-              borderRadius: 4,
-            }}
-          />
-          <View
-            style={{
-              width: 6,
-              height: 6,
-              backgroundColor: "gray",
-              borderRadius: 3,
-            }}
-          />
+        <Button
+          text="Continue"
+          style={styles.button}
+          onPress={skipOnboarding}
+        />
+        <View style={styles.dotContainer}>
+          <View style={styles.inactiveDot} />
+          <View style={styles.activeDot} />
+          <View style={styles.inactiveDot} />
         </View>
       </View>
-    </SafeAreaView >
+    </SafeAreaView>
   );
 };

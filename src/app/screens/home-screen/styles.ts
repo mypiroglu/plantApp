@@ -1,4 +1,10 @@
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {
+  StyleSheet,
+  TextStyle,
+  ViewStyle,
+  Platform,
+  StatusBar,
+} from 'react-native';
 import {colors, sizing} from '../../utils';
 
 interface Styles {
@@ -9,6 +15,7 @@ interface Styles {
   searchInput: ViewStyle;
   getStarted: TextStyle;
   flatList: ViewStyle;
+  statusContainer: ViewStyle;
 }
 
 const styles: Styles = StyleSheet.create<Styles>({
@@ -71,6 +78,11 @@ const styles: Styles = StyleSheet.create<Styles>({
     alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  statusContainer: {
+    flex: 1,
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    marginBottom: sizing.height < 700 ? 47 : 80,
   },
 });
 

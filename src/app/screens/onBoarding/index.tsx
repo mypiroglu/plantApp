@@ -1,18 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, ScrollView, StatusBar } from 'react-native';
+import React, {useState, useRef} from 'react';
+import {View, ScrollView, StyleSheet} from 'react-native';
+import {OnBoarding1, OnBoarding2, OnBoarding3} from '..';
+import {sizing} from '../../utils';
 
-import { OnBoarding1, OnBoarding2, OnBoarding3 } from '..';
-import { sizing } from '../../utils';
+interface Props {
+  navigation: any;
+}
 
-export const OnBoarding = ({ navigation }) => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const totalSteps = 3;
-  const scrollViewRef = useRef();
+export const OnBoarding: React.FC<Props> = ({navigation}) => {
+  const [currentStep, setCurrentStep] = useState<number>(0);
+  const totalSteps: number = 3;
+  const scrollViewRef = useRef<ScrollView>(null);
 
   const nextStep = () => {
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
-      scrollViewRef.current.scrollTo({
+      scrollViewRef.current?.scrollTo({
         x: sizing.width * (currentStep + 1),
         animated: true,
       });
@@ -32,15 +35,22 @@ export const OnBoarding = ({ navigation }) => {
         );
         setCurrentStep(activeStep);
       }}>
-      <View style={{ width: sizing.width, height: sizing.height }}>
+      <View style={styles.container}>
         <OnBoarding1 navigate={nextStep} />
       </View>
-      <View style={{ width: sizing.width, height: sizing.height }}>
+      <View style={styles.container}>
         <OnBoarding2 navigate={nextStep} />
       </View>
-      <View style={{ width: sizing.width, height: sizing.height }}>
+      <View style={styles.container}>
         <OnBoarding3 navigate={nextStep} />
       </View>
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: sizing.width,
+    height: sizing.height,
+  },
+});

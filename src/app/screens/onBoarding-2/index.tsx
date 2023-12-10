@@ -2,12 +2,11 @@ import React from 'react';
 import { SafeAreaView, Image, View } from 'react-native';
 import { Text, Button } from '../../components';
 import styles from './styles';
-import { sizing } from '../../utils';
 
 export const OnBoarding2 = ({ navigate }) => {
   return (
     <SafeAreaView style={styles.root}>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={styles.textContainer}>
         <Text style={styles.welcomeText} preset="black">
           Take a photo to identify{' '}
         </Text>
@@ -29,40 +28,11 @@ export const OnBoarding2 = ({ navigate }) => {
           style={styles.image}
           resizeMode="contain"
         />
-        <Button text="Continue" style={{ marginBottom: 20, top: "-24%" }} onPress={navigate} />
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            width: 32,
-            position: 'absolute',
-            bottom: sizing.height * 0.09,
-          }}>
-          <View
-            style={{
-              width: 8,
-              height: 8,
-              backgroundColor: 'black',
-              borderRadius: 4,
-            }}
-          />
-          <View
-            style={{
-              width: 6,
-              height: 6,
-              backgroundColor: 'gray',
-              borderRadius: 3,
-            }}
-          />
-          <View
-            style={{
-              width: 6,
-              height: 6,
-              backgroundColor: 'gray',
-              borderRadius: 3,
-            }}
-          />
+        <Button text="Continue" style={styles.button} onPress={navigate} />
+        <View style={styles.dotContainer}>
+          <View style={styles.activeDot} />
+          <View style={styles.inactiveDot} />
+          <View style={styles.inactiveDot} />
         </View>
       </View>
     </SafeAreaView>

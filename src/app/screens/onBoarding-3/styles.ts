@@ -1,24 +1,30 @@
 import {StyleSheet, TextStyle, ViewStyle, ImageStyle} from 'react-native';
 import {colors, sizing} from '../../utils';
 
-interface Styles {
-  linearGradientContainer: ViewStyle;
+interface StylesPreset {
+  root: ViewStyle;
+  textContainer: ViewStyle;
   welcomeText: TextStyle;
   plantText: TextStyle;
   image: ImageStyle;
   contentContainer: ViewStyle;
-  subtext: TextStyle;
-  termsText: TextStyle;
-  termsContainer: ViewStyle;
   brushImage: ImageStyle;
   imageLeaf: ImageStyle;
   imageArtwork: ImageStyle;
+  button: ViewStyle;
+  dotContainer: ViewStyle;
+  activeDot: ViewStyle;
+  inactiveDot: ViewStyle;
 }
 
-const styles: Styles = StyleSheet.create<Styles>({
+const styles: StylesPreset = StyleSheet.create<StylesPreset>({
   root: {
     flex: 1,
     backgroundColor: colors.palette.white,
+  },
+  textContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 20,
   },
   welcomeText: {
     fontWeight: '300',
@@ -69,6 +75,30 @@ const styles: Styles = StyleSheet.create<Styles>({
     position: 'absolute',
     top: '-40%',
     zIndex: 999,
+  },
+  button: {
+    marginBottom: 20,
+    top: '-13%',
+  },
+  dotContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 32,
+    position: 'absolute',
+    bottom: sizing.height * 0.11,
+  },
+  activeDot: {
+    width: 8,
+    height: 8,
+    backgroundColor: colors.palette.black,
+    borderRadius: 4,
+  },
+  inactiveDot: {
+    width: 6,
+    height: 6,
+    backgroundColor: colors.palette.grey,
+    borderRadius: 3,
   },
 });
 

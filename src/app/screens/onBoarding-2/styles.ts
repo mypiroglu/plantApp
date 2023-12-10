@@ -8,12 +8,20 @@ interface Styles {
   image: ImageStyle;
   contentContainer: ViewStyle;
   brushImage: ImageStyle;
+  textContainer: ViewStyle;
+  button: ViewStyle;
+  dotContainer: ViewStyle;
+  activeDot: ViewStyle;
+  inactiveDot: ViewStyle;
 }
 
 const styles: Styles = StyleSheet.create<Styles>({
   root: {
     flex: 1,
     backgroundColor: colors.palette.white,
+  },
+  textContainer: {
+    flexDirection: 'row',
   },
   welcomeText: {
     fontWeight: '300',
@@ -46,6 +54,30 @@ const styles: Styles = StyleSheet.create<Styles>({
     alignSelf: 'flex-end',
     top: -75,
     left: sizing.width > 400 ? -70 : -10,
+  },
+  button: {
+    marginBottom: 20,
+    top: '-24%',
+  },
+  dotContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 32,
+    position: 'absolute',
+    bottom: sizing.height * 0.09,
+  },
+  activeDot: {
+    width: 8,
+    height: 8,
+    backgroundColor: colors.palette.black,
+    borderRadius: 4,
+  },
+  inactiveDot: {
+    width: 6,
+    height: 6,
+    backgroundColor: colors.palette.grey,
+    borderRadius: 3,
   },
 });
 

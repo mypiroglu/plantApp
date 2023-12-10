@@ -11,9 +11,21 @@ interface Styles {
   termsText: TextStyle;
   termsContainer: ViewStyle;
   button: ViewStyle;
+  textContainer: ViewStyle;
+  root: ViewStyle;
+  safearea: ViewStyle;
+  tappingTextContainer: ViewStyle;
 }
 
 const styles: Styles = StyleSheet.create<Styles>({
+  root: {
+    flex: 1,
+    backgroundColor: colors.palette.white,
+  },
+  safearea: {
+    flex: 1,
+    backgroundColor: colors.palette.white,
+  },
   linearGradientContainer: {
     flex: 1,
     padding: 20,
@@ -63,6 +75,12 @@ const styles: Styles = StyleSheet.create<Styles>({
   button: {
     marginBottom: 20,
     top: sizing.height > 700 ? '3%' : '6%',
+  },
+  textContainer: {
+    flexDirection: 'row',
+  },
+  tappingTextContainer: {
+    top: '4%',
   },
 });
 

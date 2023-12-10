@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   ImageBackground,
@@ -8,11 +8,11 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
-import { Button, StartedCard, CategoryCard, Text, Icon } from '../../components';
-import { colors, sizing } from '../../utils';
+import {Button, StartedCard, CategoryCard, Text, Icon} from '../../components';
+import {colors} from '../../utils';
 import styles from './styles';
-import { useDispatch, useSelector } from 'react-redux';
-import { getData, getQuestions } from '../../api';
+import {useDispatch, useSelector} from 'react-redux';
+import {getData, getQuestions} from '../../api';
 
 interface RootState {
   categories: {
@@ -44,7 +44,7 @@ export const HomeScreen: React.FC = () => {
   }, [dispatch]);
 
   const renderHeader = () => (
-    <View style={{ flex: 1, marginTop: 20 }}>
+    <View style={{flex: 1, marginTop: 20}}>
       <View style={styles.header}>
         <Text preset={'black'}>Hi, plant lover!</Text>
         <Text preset={'third'}>Good Afternoon! ⛅</Text>
@@ -56,10 +56,13 @@ export const HomeScreen: React.FC = () => {
         style={styles.searchContainer}>
         <View style={styles.inputContainer}>
           <Icon icon={'search'} />
-          <TextInput p placeholder={'Search for plants!'} style={styles.searchInput} />
+          <TextInput
+            p
+            placeholder={'Search for plants!'}
+            style={styles.searchInput}
+          />
         </View>
       </ImageBackground>
-
 
       <View style={styles.container}>
         <Button
@@ -82,7 +85,7 @@ export const HomeScreen: React.FC = () => {
           horizontal
           showsHorizontalScrollIndicator={false}
           data={questionsData}
-          renderItem={({ item }) => (
+          renderItem={({item}) => (
             <View style={styles.container}>
               <StartedCard
                 text={item.title}
@@ -97,22 +100,16 @@ export const HomeScreen: React.FC = () => {
     </View>
   );
 
-  const renderCategoryItem = ({ item }) => (
-
+  const renderCategoryItem = ({item}) => (
     <CategoryCard
       text={item.title}
       imageUri={item.image.url}
       onPress={() => console.log('Pressed')}
     />
-
   );
   StatusBar.setBarStyle('dark-content', true);
   return (
-    <SafeAreaView style={{
-      flex: 1,
-      marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-      marginBottom: sizing.height < 700 ? 47 : 80,
-    }}>
+    <SafeAreaView style={styles.statusContainer}>
       <FlatList
         showsVerticalScrollIndicator={false}
         style={styles.flatList}
