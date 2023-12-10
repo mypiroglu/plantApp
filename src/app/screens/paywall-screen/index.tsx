@@ -1,12 +1,16 @@
-import React from 'react';
-import { ImageBackground, View, SafeAreaView, FlatList, StatusBar } from 'react-native';
+import React, { useLayoutEffect, useEffect } from 'react';
+import { ImageBackground, View, SafeAreaView, FlatList, StatusBar, Platform } from 'react-native';
 import { Text, Button, SubscriptionSelector } from '../../components';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
+import { colors } from '../../utils';
 
 export const PaywallScreen = () => {
   const navigation = useNavigation();
-  StatusBar.setBarStyle('light-content', true);
+  useLayoutEffect(() => {
+    StatusBar.setBarStyle(Platform.OS === "ios" ? 'light-content' : "dark-content", true);
+  }, []);
+
   const features = [
     {
       title: 'Unlimited',

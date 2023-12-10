@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {colors, sizing} from '../utils';
-import {Icon} from '../components/icon';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { colors, sizing } from '../utils';
+import { Icon } from '../components/icon';
 import HomeStack from './home-stack';
+import ScanStack from './scan-stack';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +12,7 @@ interface CustomTabBarButtonProps {
   onPress: () => void;
 }
 
-const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({onPress}) => (
+const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({ onPress }) => (
   <TouchableOpacity style={styles.touchableOpacityContainer} onPress={onPress}>
     <View style={styles.biggerCircle}>
       <View style={styles.smallerCircle}>
@@ -21,9 +22,6 @@ const CustomTabBarButton: React.FC<CustomTabBarButtonProps> = ({onPress}) => (
   </TouchableOpacity>
 );
 
-const PlusScreen: React.FC = () => {
-  return <View>{/* Plus screen content */}</View>;
-};
 
 const MyTabs: React.FC = () => {
   return (
@@ -41,7 +39,7 @@ const MyTabs: React.FC = () => {
           name="Home"
           component={HomeStack}
           options={{
-            tabBarIcon: ({focused}) => (
+            tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
                 <Icon icon={focused ? 'shome' : 'uhome'} />
               </View>
@@ -52,7 +50,7 @@ const MyTabs: React.FC = () => {
           name="Diagnose"
           component={HomeStack}
           options={{
-            tabBarIcon: ({focused}) => (
+            tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
                 <Icon icon={focused ? 'sdiagnose' : 'udiagnose'} />
               </View>
@@ -61,8 +59,8 @@ const MyTabs: React.FC = () => {
         />
 
         <Tab.Screen
-          name="Plus"
-          component={PlusScreen}
+          name="Scan"
+          component={ScanStack}
           options={{
             tabBarButton: props => <CustomTabBarButton {...props} />,
           }}
@@ -71,7 +69,7 @@ const MyTabs: React.FC = () => {
           name="My Garden"
           component={HomeStack}
           options={{
-            tabBarIcon: ({focused}) => (
+            tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
                 <Icon icon={focused ? 'sgarden' : 'ugarden'} />
               </View>
@@ -82,7 +80,7 @@ const MyTabs: React.FC = () => {
           name="Profile"
           component={HomeStack}
           options={{
-            tabBarIcon: ({focused}) => (
+            tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
                 <Icon icon={focused ? 'sprofile' : 'uprofile'} />
               </View>

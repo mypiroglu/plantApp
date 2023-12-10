@@ -1,4 +1,10 @@
-import {StyleSheet, TextStyle, ViewStyle, ImageStyle} from 'react-native';
+import {
+  StyleSheet,
+  TextStyle,
+  ViewStyle,
+  ImageStyle,
+  Platform,
+} from 'react-native';
 import {colors, sizing} from '../../utils';
 
 interface Styles {
@@ -34,7 +40,12 @@ const styles: Styles = StyleSheet.create<Styles>({
     paddingTop: 100,
   },
   headerContainer: {
-    height: sizing.height < 700 ? sizing.height / 3.5 : sizing.height / 2.3,
+    height:
+      Platform.OS === 'ios'
+        ? sizing.height < 700
+          ? sizing.height / 3.5
+          : sizing.height / 2.3
+        : sizing.height / 2.6,
     width: '100%',
   },
   headerTextContainer: {

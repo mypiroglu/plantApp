@@ -1,20 +1,20 @@
 import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen } from '../screens';
+import { ScanScreen } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const ScanStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="home-screen"
+      initialRouteName="scan-screen"
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="home-screen" component={HomeScreen} />
+      <Stack.Screen name="scan-screen" component={ScanScreen} />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default ScanStack;

@@ -85,8 +85,8 @@ const styles: Styles = StyleSheet.create<Styles>({
   },
   statusContainer: {
     flex: 1,
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    marginBottom: sizing.height < 700 ? 47 : 80,
+    marginTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0,
+    marginBottom: Platform.OS === 'ios' ? (sizing.height < 700 ? 47 : 80) : 50,
   },
 });
 

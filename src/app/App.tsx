@@ -1,9 +1,9 @@
-import React, {useLayoutEffect} from 'react';
-import {StatusBar, StyleSheet, View, Platform} from 'react-native';
-import {Provider} from 'react-redux';
-import {store} from './redux/store';
+import React, { useLayoutEffect } from 'react';
+import { StatusBar, StyleSheet, View, Platform } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 import AppStack from './navigators/app-stack';
-import {colors} from './utils';
+import { colors } from './utils';
 
 const App: React.FC = () => {
   useLayoutEffect(() => {
@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <View style={styles.root}>
       <StatusBar
-        backgroundColor={colors.background}
+        backgroundColor={colors.transparent}
         animated={true}
         hidden={false}
       />

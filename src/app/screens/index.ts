@@ -5,3 +5,4 @@ export * from './onBoarding-1';
 export * from './onBoarding-2';
 export * from './onBoarding-3';
 export * from './paywall-screen';
+export * from './scan-screen';
