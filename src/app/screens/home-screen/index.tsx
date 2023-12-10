@@ -39,6 +39,9 @@ export const HomeScreen: React.FC = () => {
   const questionsIsLoading = useSelector(
     (state: RootState) => state.questions.isLoading,
   );
+  const navigationPaywall = () => {
+    navigation.navigate('paywall-screen');
+  }
 
   useEffect(() => {
     !categoriesData && dispatch(getData());
@@ -69,7 +72,7 @@ export const HomeScreen: React.FC = () => {
         <Button
           text="FREE Premium Available"
           subText="Tap to upgrade your account!"
-          onPress={() => navigation.navigate('paywall-screen')}
+          onPress={navigationPaywall}
           iconLeft={'mail'}
           preset={'third'}
           iconRight={'arrow'}
