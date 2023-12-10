@@ -1,5 +1,4 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import logger from 'redux-logger';
 import {categoriesSlice, questionsSlice} from './slice';
 
 const reducer = combineReducers({
@@ -9,5 +8,5 @@ const reducer = combineReducers({
 
 export const store = configureStore({
   reducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(),
 });
