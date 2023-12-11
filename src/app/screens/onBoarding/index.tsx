@@ -1,15 +1,15 @@
-import React, {useState, useRef} from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
-import {OnBoarding1, OnBoarding2, OnBoarding3} from '..';
-import {sizing} from '../../utils';
+import React, { useState, useRef } from 'react';
+import { View, ScrollView, StyleSheet } from 'react-native';
+import { OnBoarding1, OnBoarding2, OnBoarding3, PaywallScreen } from '..';
+import { sizing } from '../../utils';
 
 interface Props {
   navigation: any;
 }
 
-export const OnBoarding: React.FC<Props> = ({navigation}) => {
+export const OnBoarding: React.FC<Props> = ({ navigation }) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
-  const totalSteps: number = 3;
+  const totalSteps: number = 4;
   const scrollViewRef = useRef<ScrollView>(null);
 
   const nextStep = () => {
@@ -43,6 +43,9 @@ export const OnBoarding: React.FC<Props> = ({navigation}) => {
       </View>
       <View style={styles.container}>
         <OnBoarding3 navigate={nextStep} />
+      </View>
+      <View style={styles.container}>
+        <PaywallScreen navigate={nextStep} />
       </View>
     </ScrollView>
   );

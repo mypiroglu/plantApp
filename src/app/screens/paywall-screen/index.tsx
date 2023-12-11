@@ -1,11 +1,11 @@
-import React, { useLayoutEffect, useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { ImageBackground, View, SafeAreaView, FlatList, StatusBar, Platform } from 'react-native';
 import { Text, Button, SubscriptionSelector } from '../../components';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../utils';
 
-export const PaywallScreen = () => {
+export const PaywallScreen = ({ navigate }) => {
   const navigation = useNavigation();
   useLayoutEffect(() => {
     StatusBar.setBarStyle(Platform.OS === "ios" ? 'light-content' : "dark-content", true);
@@ -28,9 +28,6 @@ export const PaywallScreen = () => {
       icon: 'scan',
     },
   ];
-  const navigate = () => {
-    navigation.navigate('bottom-tab');
-  }
 
   const renderItem = ({ item }) => (
     <View style={styles.renderItemContainer}>

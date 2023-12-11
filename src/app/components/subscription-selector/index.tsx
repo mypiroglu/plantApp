@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
-import { SubscriptionButtonProps } from './subsription-selector.prop';
+import React, {useState} from 'react';
+import {View, Text, Pressable} from 'react-native';
+import {SubscriptionButtonProps} from './subsription-selector.prop';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './subscription-selector.presets';
 type SubscriptionOption = 'monthly' | 'yearly';
@@ -16,9 +16,13 @@ const SubscriptionButton: React.FC<SubscriptionButtonProps> = ({
       onPress={() => onSelect(option)}
       activeOpacity={0.8}>
       <LinearGradient
-        colors={isSelected ? ['#0b1e16', '#0a271b', '#1d4938'] : ['#263b33', '#263b33']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
+        colors={
+          isSelected
+            ? ['#0b1e16', '#0a271b', '#1d4938']
+            : ['#263b33', '#263b33']
+        }
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 0}}
         style={styles.linearGradient}>
         <View
           style={isSelected ? styles.selectedRadioButton : styles.radioButton}>
@@ -40,14 +44,13 @@ const SubscriptionButton: React.FC<SubscriptionButtonProps> = ({
           </View>
         )}
       </LinearGradient>
-    </Pressable >
+    </Pressable>
   );
 };
 
 export const SubscriptionSelector: React.FC = () => {
   const [selectedOption, setSelectedOption] =
-    useState<SubscriptionOption>('monthly');
-
+    useState<SubscriptionOption>('yearly');
   return (
     <View style={styles.container}>
       <SubscriptionButton

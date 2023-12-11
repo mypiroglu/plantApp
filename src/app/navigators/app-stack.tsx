@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {CardStyleInterpolators} from '@react-navigation/stack';
-import {PaywallScreen} from '../screens';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { CardStyleInterpolators } from '@react-navigation/stack';
 import MyTabs from './bottom-tab';
 import OnBoardingStack from './on-boarding-stack';
 import AsyncStorage from '@react-native-community/async-storage';
-import {colors} from '../utils';
+import { colors } from '../utils';
 
 const AppStack: React.FC = () => {
   const [onBoard, setOnBoard] = useState<boolean>(false);
@@ -41,7 +40,6 @@ const AppStack: React.FC = () => {
               component={OnBoardingStack}
             />
           )}
-          <Stack.Screen name="paywall-screen" component={PaywallScreen} />
           <Stack.Screen name="bottom-tab" component={MyTabs} />
         </Stack.Navigator>
       </NavigationContainer>
