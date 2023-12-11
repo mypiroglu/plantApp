@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import { View, ScrollView, StyleSheet, StatusBar } from 'react-native';
 import { OnBoarding1, OnBoarding2, OnBoarding3, PaywallScreen } from '..';
 import { sizing } from '../../utils';
 
@@ -20,12 +20,23 @@ export const OnBoarding: React.FC<Props> = ({ navigation }) => {
         animated: true,
       });
     } else {
-      navigation.navigate('paywall-screen');
+      navigation.navigate('bottom-tab');
     }
   };
 
+  useLayoutEffect(() => {
+    if (currentStep === 3) {
+      StatusBar.setBarStyle('light-content');
+    }
+    else {
+      StatusBar.setBarStyle('dark-content');
+    }
+  }, [currentStep]);
+
   return (
     <ScrollView
+      nestedScrollEnabled={true}
+      scrollEnabled={false}
       ref={scrollViewRef}
       horizontal
       pagingEnabled

@@ -19,6 +19,7 @@ interface Styles {
   statusContainer: ViewStyle;
   separator: ViewStyle;
   inputContainer: ViewStyle;
+  headerTextContainer: ViewStyle;
 }
 
 const styles: Styles = StyleSheet.create<Styles>({
@@ -26,6 +27,10 @@ const styles: Styles = StyleSheet.create<Styles>({
     flex: 1,
     backgroundColor: colors.palette.offWhite,
     paddingHorizontal: sizing.padding,
+  },
+  headerTextContainer: {
+    flex: 1,
+    marginTop: 30,
   },
   flatList: {
     flex: 1,

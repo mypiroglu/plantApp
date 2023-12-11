@@ -1,16 +1,9 @@
-import React, { useLayoutEffect } from 'react';
-import { ImageBackground, View, SafeAreaView, FlatList, StatusBar, Platform } from 'react-native';
+import React from 'react';
+import { ImageBackground, View, SafeAreaView, ScrollView } from 'react-native';
 import { Text, Button, SubscriptionSelector } from '../../components';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
-import { colors } from '../../utils';
 
 export const PaywallScreen = ({ navigate }) => {
-  const navigation = useNavigation();
-  useLayoutEffect(() => {
-    StatusBar.setBarStyle(Platform.OS === "ios" ? 'light-content' : "dark-content", true);
-  }, []);
-
   const features = [
     {
       title: 'Unlimited',
@@ -30,7 +23,7 @@ export const PaywallScreen = ({ navigate }) => {
   ];
 
   const renderItem = ({ item }) => (
-    <View style={styles.renderItemContainer}>
+    <View style={styles.renderItemContainer} key={item.title}>
       <Button
         preset={'fourth'}
         text={item.title}
@@ -58,14 +51,15 @@ export const PaywallScreen = ({ navigate }) => {
             </View>
             <Text style={styles.subText}>Access All Features</Text>
           </View>
-          <FlatList
+          <ScrollView
+            nestedScrollEnabled={true}
             style={styles.flatList}
             horizontal
-            showsHorizontalScrollIndicator={false}
-            data={features}
-            renderItem={renderItem}
-            keyExtractor={item => item.title}
-          />
+            showsHorizontalScrollIndicator={false}>
+            {features.map(item => (
+              renderItem({ item })
+            ))}
+          </ScrollView>
           <SubscriptionSelector />
           <Button
             text={'Try free for 3 days'}

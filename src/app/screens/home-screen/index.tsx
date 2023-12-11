@@ -40,7 +40,7 @@ export const HomeScreen: React.FC = () => {
     (state: RootState) => state.questions.isLoading,
   );
   const navigationPaywall = () => {
-    navigation.navigate('paywall-screen');
+    console.log('navigationPaywall');
   }
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCategories, setFilteredCategories] = useState([]);
@@ -63,7 +63,7 @@ export const HomeScreen: React.FC = () => {
   }, [searchTerm, categoriesData]);
 
   const renderHeader = () => (
-    <View style={{ flex: 1, marginTop: 20 }}>
+    <View style={styles.headerTextContainer}>
       <View style={styles.header}>
         <Text preset={'black'}>Hi, plant lover!</Text>
         <Text preset={'third'}>Good Afternoon! ⛅</Text>
