@@ -45,7 +45,7 @@ const styles: Styles = StyleSheet.create<Styles>({
         ? sizing.height < 700
           ? sizing.height / 3.5
           : sizing.height / 2.3
-        : sizing.height / 2.6,
+        : sizing.height / 2.7,
     width: '100%',
   },
   headerTextContainer: {

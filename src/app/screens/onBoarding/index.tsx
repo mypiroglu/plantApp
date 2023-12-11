@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
-import { View, ScrollView, StyleSheet, StatusBar } from 'react-native';
+import { View, ScrollView, StyleSheet, StatusBar, Platform } from 'react-native';
 import { OnBoarding1, OnBoarding2, OnBoarding3, PaywallScreen } from '..';
-import { sizing } from '../../utils';
+import { sizing, colors } from '../../utils';
 
 interface Props {
   navigation: any;
@@ -27,6 +27,7 @@ export const OnBoarding: React.FC<Props> = ({ navigation }) => {
   useLayoutEffect(() => {
     if (currentStep === 3) {
       StatusBar.setBarStyle('light-content');
+      Platform.OS === 'android' && StatusBar.setBackgroundColor(colors.palette.black);
     }
     else {
       StatusBar.setBarStyle('dark-content');

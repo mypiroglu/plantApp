@@ -129,12 +129,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabContainer: {
-    height: sizing.height,
+    flex: 1,
     backgroundColor: colors.palette.offWhite,
   },
   tabBarStyle: {
     position: 'absolute',
-    zIndex: 999,
   },
   tabBarLaberStyle: {
     fontSize: sizing.height < 700 ? 10 : 12,

@@ -22,6 +22,7 @@ const styles: Styles = StyleSheet.create<Styles>({
   },
   textContainer: {
     flexDirection: 'row',
+    width: sizing.width - 40,
   },
   welcomeText: {
     fontWeight: '300',
@@ -53,7 +54,7 @@ const styles: Styles = StyleSheet.create<Styles>({
     resizeMode: 'contain',
     alignSelf: 'flex-end',
     top: -75,
-    left: sizing.width > 400 ? -70 : -10,
+    left: sizing.width > 500 ? -70 : -35,
   },
   button: {
     marginBottom: 20,
