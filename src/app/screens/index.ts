@@ -6,3 +6,6 @@ export * from './onBoarding-2';
 export * from './onBoarding-3';
 export * from './paywall-screen';
 export * from './scan-screen';
+export * from './diagnose-screen';
+export * from './my-garden-screen';
+export * from './profile-screen';

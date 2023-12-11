@@ -5,6 +5,9 @@ import { colors, sizing } from '../utils';
 import { Icon } from '../components/icon';
 import HomeStack from './home-stack';
 import ScanStack from './scan-stack';
+import DiagnoseStack from './diagnose-stack';
+import MyGardenStack from './my-garden-stack';
+import ProfileStack from './profile-stack';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,7 +51,7 @@ const MyTabs: React.FC = () => {
         />
         <Tab.Screen
           name="Diagnose"
-          component={HomeStack}
+          component={DiagnoseStack}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
@@ -67,7 +70,7 @@ const MyTabs: React.FC = () => {
         />
         <Tab.Screen
           name="My Garden"
-          component={HomeStack}
+          component={MyGardenStack}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
@@ -78,7 +81,7 @@ const MyTabs: React.FC = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={HomeStack}
+          component={ProfileStack}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={styles.iconContainer}>
