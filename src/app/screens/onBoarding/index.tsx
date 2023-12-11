@@ -31,6 +31,7 @@ export const OnBoarding: React.FC<Props> = ({ navigation }) => {
     }
     else {
       StatusBar.setBarStyle('dark-content');
+      Platform.OS === 'android' && StatusBar.setBackgroundColor(colors.palette.white);
     }
   }, [currentStep]);
 
